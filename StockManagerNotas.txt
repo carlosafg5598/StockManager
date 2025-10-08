@@ -1,0 +1,5 @@
+STOCKMANAGER
+
+1)Enlazar base de datos
+2)Hacer tablas desde asp.Net
+3)Rellenar tablas con datos
