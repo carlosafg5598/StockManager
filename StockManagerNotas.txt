@@ -1,5 +1,10 @@
 STOCKMANAGER
 
-1)Enlazar base de datos
-2)Hacer tablas desde asp.Net
-3)Rellenar tablas con datos
+1)Enlazar base de datos (ver punto 4)
+2)Hacer tablas desde asp.Net (ver puntpo 4)
+3)Rellenar tablas con datos (ver punto 4)
+
+4)Uso SQLite dentro del propio código para que no haya problema a la hora de
+estar usando el código en diferentes ordenador, de forma que al iniciarlo 
+contemos siempre con una base de datos como ejemplo, las tablas y el relleno 
+lo hacemos mediante migraciones a SQLite ya actualizado en el json settings
