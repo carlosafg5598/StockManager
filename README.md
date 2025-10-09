@@ -7,7 +7,10 @@
 3) Proyecto asp.Net creado
 
 ## Segunda Subida
-1) Modificación del proyecto para usar Sqlite y evitarme problemas a la hora de usar diferentes ordenadores 
+1) Modificación del proyecto para usar Sqlite y evitarme problemas a la hora de usar diferentes ordenadores
+
+## Tercera Subida
+1) Conexión y migraciones
 
 ## Cursos vistos
 
