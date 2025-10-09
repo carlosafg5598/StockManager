@@ -5,7 +5,7 @@ namespace StockManager.Models
 {
     public class Producto
     {
-        [Key]
+        [Key] 
         public int IdProducto { get; set; }
 
 
@@ -31,10 +31,10 @@ namespace StockManager.Models
         public bool Activo {  get; set; }
 
 
-        // 🔗 Relación con Proveedor
+        //Relación con Proveedor
         public Proveedor? Proveedor { get; set; }
 
-        // 🔗 Relación con Movimientos
-        public ICollection<MovimientoStock>? Movimientos { get; set; }
+        //Relación con Movimientos
+        public List<MovimientoStock>? Movimientos { get; set; }
     }
 }

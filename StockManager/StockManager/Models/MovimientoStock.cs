@@ -15,7 +15,7 @@ namespace StockManager.Models
 
         [Required]
         [MaxLength(1)]
-        public string TipoMovimiento { get; set; }  // 'E' = entrada, 'S' = salida
+        public string TipoMovimiento { get; set; }  
 
         [Required]
         public int Cantidad { get; set; }
@@ -23,10 +23,10 @@ namespace StockManager.Models
         [MaxLength(255)]
         public string? Descripcion { get; set; }
 
-        public int? UsuarioId { get; set; }
+        public int UsuarioId{ get; set; }
 
-        // 🔗 Relaciones
+        //Relaciones
         public Producto Producto { get; set; }
-        public Usuario? Usuario { get; set; }
+        public Usuario Usuario { get; set; }
     }
 }

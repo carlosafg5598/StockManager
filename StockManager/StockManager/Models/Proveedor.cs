@@ -4,22 +4,23 @@ namespace StockManager.Models
 {
     public class Proveedor
     {
+        [Key]
         public int IdProveedor { get; set; }
 
         [Required]
         [MaxLength(100)]
-        public string Nombre { get; set; }
+        public string NombreProveedor { get; set; }
 
         [MaxLength(50)]
-        public string? Telefono { get; set; }
+        public string? TelefonoProveedor { get; set; }
 
         [MaxLength(100)]
-        public string? Email { get; set; }
+        public string? EmailProveedor { get; set; }
 
         [MaxLength(255)]
-        public string? Direccion { get; set; }
+        public string? DireccionProveedor { get; set; }
 
-        // 🔗 Relación con Productos
-        public ICollection<Producto>? Productos { get; set; }
+        //Relación con Productos
+        public List<Producto>? Productos { get; set; }
     }
 }

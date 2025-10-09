@@ -8,3 +8,12 @@ STOCKMANAGER
 estar usando el código en diferentes ordenador, de forma que al iniciarlo 
 contemos siempre con una base de datos como ejemplo, las tablas y el relleno 
 lo hacemos mediante migraciones a SQLite ya actualizado en el json settings
+5)Explicación términos usados en SQlite: 
+- ?: En C# moderno (a partir de C# 8), el ? indica que la propiedad puede tener valor nulo (null), es decir, no es obligatoria.
+- [Column(TypeName = "decimal(18,2)")]: En este caso:
+	- decimal(18,2) significa que el número puede tener 18 dígitos en total, con 2 decimales (como precios).
+	- Ejemplo de valores válidos: 1234567890123.45.
+- enlazadas las clases para poder acceder de una a otra sin tener que hacer querys extra
+6)Miraciones: add-Migration Inicial
+7)Update-Database: para actualizar la base de datos de sqlite
+8)Instlé la extensión de sqlite para poder manejar la base de datos desde el propio visual studio

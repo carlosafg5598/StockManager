@@ -5218,23 +5218,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Carlos\\.nuget\\packages\\": {},
+    "C:\\Users\\carlo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Carlos\\Desktop\\StockManager\\StockManager\\StockManager\\StockManager.csproj",
+      "projectUniqueName": "C:\\Users\\carlo\\Desktop\\StockManager\\StockManager\\StockManager\\StockManager.csproj",
       "projectName": "StockManager",
-      "projectPath": "C:\\Users\\Carlos\\Desktop\\StockManager\\StockManager\\StockManager\\StockManager.csproj",
-      "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Carlos\\Desktop\\StockManager\\StockManager\\StockManager\\obj\\",
+      "projectPath": "C:\\Users\\carlo\\Desktop\\StockManager\\StockManager\\StockManager\\StockManager.csproj",
+      "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\carlo\\Desktop\\StockManager\\StockManager\\StockManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

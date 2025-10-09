@@ -9,21 +9,21 @@ namespace StockManager.Models
 
         [Required]
         [MaxLength(100)]
-        public string Nombre { get; set; }
+        public string NombreUsuario { get; set; }
 
         [Required]
         [MaxLength(100)]
-        public string Email { get; set; }
+        public string EmailUsuario { get; set; }
 
         [Required]
         [MaxLength(255)]
-        public string PasswordHash { get; set; }
+        public string PasswordHashUsuario { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string Rol { get; set; }  // Ej: "Administrador", "Empleado"
+        public string RolUsuario { get; set; }  
 
-        // 🔗 Relación con movimientos
-        public ICollection<MovimientoStock>? Movimientos { get; set; }
+        //Relación con movimientos
+        public List<MovimientoStock>? Movimientos { get; set; }
     }
 }
