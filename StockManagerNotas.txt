@@ -17,3 +17,6 @@ lo hacemos mediante migraciones a SQLite ya actualizado en el json settings
 6)Miraciones: add-Migration Inicial
 7)Update-Database: para actualizar la base de datos de sqlite
 8)Instlé la extensión de sqlite para poder manejar la base de datos desde el propio visual studio
+9)Aprender bootstrap asi como ver como hago todo lo que hago
+10)Dudas Curro con SQlite
+11)Revisar página de inicio así como clase seed ya que son pruebas para ir empezando a hacr cosas básicas

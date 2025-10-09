@@ -13,7 +13,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+
+
 var app = builder.Build();
+
+//TODO ESTO ES PARA METER DATOS AL ABRIR EL VISAUL, DE FORMA QUE LAS TABLAS SIEMPRE TENGAN DATOS
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    Seed.Initialize(context);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

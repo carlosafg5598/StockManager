@@ -1,0 +1,21 @@
+﻿@model IEnumerable<StockManager.Models.Producto>
+
+<h2>Productos</h2>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Stock</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.NombreProducto</td>
+            <td>@p.DescripcionProducto</td>
+            <td>@p.PrecioProducto</td>
+            <td>@p.StockActual</td>
+        </tr>
+    }
+</table>

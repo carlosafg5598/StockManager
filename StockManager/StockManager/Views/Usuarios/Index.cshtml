@@ -1,0 +1,20 @@
+﻿@model IEnumerable<StockManager.Models.Usuario>
+
+<h2>Usuarios</h2>
+
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.NombreUsuario</td>
+            <td>@u.EmailUsuario</td>
+            <td>@u.RolUsuario</td>
+        </tr>
+    }
+</table>
+
