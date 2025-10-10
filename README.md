@@ -11,6 +11,8 @@
 
 ## Tercera Subida
 1) Conexión y migraciones
+2) Seed
+3) Prueba página inicio de registro/inicio sesión
 
 ## Cursos vistos
 
