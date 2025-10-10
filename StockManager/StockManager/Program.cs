@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
+//Conexión sqlite
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -17,12 +17,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-//TODO ESTO ES PARA METER DATOS AL ABRIR EL VISAUL, DE FORMA QUE LAS TABLAS SIEMPRE TENGAN DATOS
+//TODO ESTO ES PARA METER DATOS AL ABRIR EL VISAUL, el seed
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     Seed.Initialize(context);
 }
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

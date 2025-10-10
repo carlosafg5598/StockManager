@@ -1,0 +1,32 @@
+﻿@model IEnumerable<StockManager.Models.MovimientoStock>
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Movimientos de Stock</h2>
+
+<a class="btn btn-primary mb-3" href="/Movimientos/Create">Registrar nuevo movimiento</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Producto.NombreProducto</td>
+                <td>@m.Cantidad</td>
+                <td>@m.TipoMovimiento</td>
+                <td>@m.FechaMovimiento.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,64 @@
+﻿@* @model StockManager.Models.MovimientoStock
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Registrar Movimiento</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Producto</label>
+        <select class="form-select" asp-for="IdProducto" asp-items="@(new SelectList(ViewBag.Productos, "IdProducto", "NombreProducto"))"></select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cantidad</label>
+        <input type="number" class="form-control" asp-for="Cantidad" min="1" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tipo de Movimiento</label>
+        <select class="form-select" asp-for="TipoMovimiento">
+            <option value="Entrada">Entrada</option>
+            <option value="Salida">Salida</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Registrar</button>
+</form>
+
+ *@
+
+
+
+@model StockManager.Models.MovimientoStock
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Registrar Movimiento</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Producto</label>
+        <select class="form-select" asp-for="IdProducto"
+                asp-items="@(new SelectList(ViewBag.Productos, "IdProducto", "NombreProducto"))"></select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cantidad</label>
+        <input type="number" class="form-control" asp-for="Cantidad" min="1" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tipo de Movimiento</label>
+        <select class="form-select" asp-for="TipoMovimiento">
+            <option value="Entrada">Entrada</option>
+            <option value="Salida">Salida</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Registrar</button>
+</form>

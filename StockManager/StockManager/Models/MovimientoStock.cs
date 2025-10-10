@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockManager.Models
 {
@@ -8,13 +9,14 @@ namespace StockManager.Models
         public int IdMovimiento { get; set; }
 
         [Required]
+        [ForeignKey("Producto")]
         public int IdProducto { get; set; }
 
         [Required]
         public DateTime FechaMovimiento { get; set; } = DateTime.Now;
 
         [Required]
-        [MaxLength(1)]
+        //[MaxLength(1)]
         public string TipoMovimiento { get; set; }  
 
         [Required]
@@ -26,7 +28,7 @@ namespace StockManager.Models
         public int UsuarioId{ get; set; }
 
         //Relaciones
-        public Producto Producto { get; set; }
-        public Usuario Usuario { get; set; }
+        public Producto? Producto { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }
