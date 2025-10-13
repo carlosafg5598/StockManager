@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace StockManager.Models.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext: IdentityDbContext<ApplicationUser,IdentityRole,string>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -10,7 +12,10 @@ namespace StockManager.Models.Data
         
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Proveedor> Proveedores { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<MovimientoStock> MovimientosStock { get; set; }
+
+
+        //public DbSet<Usuario> Usuarios { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockManager.Models
@@ -25,10 +26,10 @@ namespace StockManager.Models
         [MaxLength(255)]
         public string? Descripcion { get; set; }
 
-        public int UsuarioId{ get; set; }
+        public string? UsuarioId{ get; set; }
 
         //Relaciones
         public Producto? Producto { get; set; }
-        public Usuario? Usuario { get; set; }
+        public ApplicationUser? Usuario { get; set; }
     }
 }
