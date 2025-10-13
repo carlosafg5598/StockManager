@@ -18,13 +18,17 @@
 1) CRUD de productos
 2) Gestión de movimientos
 
-## Quinta Subida
+## Quinta Subida (13/10/25)
 1) Segundo intento identiity
 Después de probar con tutoriales decidí descargar la rama principal de github y probar con chatgpt, a ver si lo podía solucionar. Me mandaba hacer practicamente lo mismo y después de un rato y varios consejos seguí con los mismos errores
+2) Arreglo identity
+Después de dar una pausa probé a abrir esta rama del proyecto desde el ordenador de casa, y al leer el código que escribí a lo largo de la mañana y a hacer un par de pruebas vi que tenía dos lineas de código diferentes pero que hacían lo mismo , lo que provocaba el error a la hora de abrir el proyecto, una vez corregido el proyecto, por lo que en principio el identity está ya configurado
 
 ## Errores a lo largo del proyecto
 1) 10/10/25
 A la hora de hacer la gestión de los moviminetos, conecta bien con la base de datos, pero a la hora de registrar el movimiento falla debido a la clave foraneo del producto
+2) 13/10/25
+Para poder realizar el control de los movimientos, decidí implementar ya el identity de los usuarios, pero eso me dió errores a lo largo de la mañana (conseguí solventarlo a la noche)
 
 ## Cursos Referencia
 
