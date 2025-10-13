@@ -18,6 +18,9 @@
 1) CRUD de productos
 2) Gestión de movimientos
 
+## Quinta Subida
+1) Segundo intento identiity
+Después de probar con tutoriales decidí descargar la rama principal de github y probar con chatgpt, a ver si lo podía solucionar. Me mandaba hacer practicamente lo mismo y después de un rato y varios consejos seguí con los mismos errores
 
 ## Errores a lo largo del proyecto
 1) 10/10/25
