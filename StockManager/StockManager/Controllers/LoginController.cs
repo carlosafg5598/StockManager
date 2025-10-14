@@ -5,7 +5,7 @@ using StockManager.Models;
 
 namespace StockManager.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LoginController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;

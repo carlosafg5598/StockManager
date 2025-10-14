@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StockManager.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProductosController : Controller
     {
         private readonly AppDbContext _context;

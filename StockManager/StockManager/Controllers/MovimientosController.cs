@@ -85,7 +85,7 @@ using System.Linq;
 
 namespace StockManager.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class MovimientosController : Controller
     {
         private readonly AppDbContext _context;
