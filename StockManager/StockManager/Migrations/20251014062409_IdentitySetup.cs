@@ -6,38 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StockManager.Migrations
 {
     /// <inheritdoc />
-    public partial class AddIdentityTables : Migration
+    public partial class IdentitySetup : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_MovimientosStock_Productos_ProductoIdProducto",
-                table: "MovimientosStock");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_MovimientosStock_Usuarios_UsuarioId",
-                table: "MovimientosStock");
-
-            migrationBuilder.DropTable(
-                name: "Usuarios");
-
-            migrationBuilder.DropIndex(
-                name: "IX_MovimientosStock_ProductoIdProducto",
-                table: "MovimientosStock");
-
-            migrationBuilder.DropColumn(
-                name: "ProductoIdProducto",
-                table: "MovimientosStock");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "UsuarioId",
-                table: "MovimientosStock",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "INTEGER");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -76,6 +49,22 @@ namespace StockManager.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Proveedores",
+                columns: table => new
+                {
+                    IdProveedor = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NombreProveedor = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    TelefonoProveedor = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    EmailProveedor = table.Column<string>(type: "TEXT", maxLength: 100, nullable: true),
+                    DireccionProveedor = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Proveedores", x => x.IdProveedor);
                 });
 
             migrationBuilder.CreateTable(
@@ -124,8 +113,8 @@ namespace StockManager.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -169,8 +158,8 @@ namespace StockManager.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    LoginProvider = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     Value = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -184,10 +173,58 @@ namespace StockManager.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_MovimientosStock_IdProducto",
-                table: "MovimientosStock",
-                column: "IdProducto");
+            migrationBuilder.CreateTable(
+                name: "Productos",
+                columns: table => new
+                {
+                    IdProducto = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NombreProducto = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    DescripcionProducto = table.Column<string>(type: "TEXT", maxLength: 250, nullable: true),
+                    PrecioProducto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    idProovedor = table.Column<int>(type: "INTEGER", nullable: false),
+                    StockActual = table.Column<int>(type: "INTEGER", nullable: false),
+                    Activo = table.Column<bool>(type: "INTEGER", nullable: false),
+                    ProveedorIdProveedor = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Productos", x => x.IdProducto);
+                    table.ForeignKey(
+                        name: "FK_Productos_Proveedores_ProveedorIdProveedor",
+                        column: x => x.ProveedorIdProveedor,
+                        principalTable: "Proveedores",
+                        principalColumn: "IdProveedor");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MovimientosStock",
+                columns: table => new
+                {
+                    IdMovimiento = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IdProducto = table.Column<int>(type: "INTEGER", nullable: false),
+                    FechaMovimiento = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    TipoMovimiento = table.Column<string>(type: "TEXT", nullable: false),
+                    Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
+                    Descripcion = table.Column<string>(type: "TEXT", maxLength: 255, nullable: true),
+                    UsuarioId = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MovimientosStock", x => x.IdMovimiento);
+                    table.ForeignKey(
+                        name: "FK_MovimientosStock_AspNetUsers_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_MovimientosStock_Productos_IdProducto",
+                        column: x => x.IdProducto,
+                        principalTable: "Productos",
+                        principalColumn: "IdProducto",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -226,33 +263,25 @@ namespace StockManager.Migrations
                 column: "NormalizedUserName",
                 unique: true);
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_MovimientosStock_AspNetUsers_UsuarioId",
+            migrationBuilder.CreateIndex(
+                name: "IX_MovimientosStock_IdProducto",
                 table: "MovimientosStock",
-                column: "UsuarioId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id");
+                column: "IdProducto");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_MovimientosStock_Productos_IdProducto",
+            migrationBuilder.CreateIndex(
+                name: "IX_MovimientosStock_UsuarioId",
                 table: "MovimientosStock",
-                column: "IdProducto",
-                principalTable: "Productos",
-                principalColumn: "IdProducto",
-                onDelete: ReferentialAction.Cascade);
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Productos_ProveedorIdProveedor",
+                table: "Productos",
+                column: "ProveedorIdProveedor");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_MovimientosStock_AspNetUsers_UsuarioId",
-                table: "MovimientosStock");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_MovimientosStock_Productos_IdProducto",
-                table: "MovimientosStock");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -269,68 +298,19 @@ namespace StockManager.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "MovimientosStock");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
-            migrationBuilder.DropIndex(
-                name: "IX_MovimientosStock_IdProducto",
-                table: "MovimientosStock");
+            migrationBuilder.DropTable(
+                name: "Productos");
 
-            migrationBuilder.AlterColumn<int>(
-                name: "UsuarioId",
-                table: "MovimientosStock",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: 0,
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "ProductoIdProducto",
-                table: "MovimientosStock",
-                type: "INTEGER",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.CreateTable(
-                name: "Usuarios",
-                columns: table => new
-                {
-                    IdUsuario = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    EmailUsuario = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    NombreUsuario = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    PasswordHashUsuario = table.Column<string>(type: "TEXT", maxLength: 255, nullable: false),
-                    RolUsuario = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MovimientosStock_ProductoIdProducto",
-                table: "MovimientosStock",
-                column: "ProductoIdProducto");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_MovimientosStock_Productos_ProductoIdProducto",
-                table: "MovimientosStock",
-                column: "ProductoIdProducto",
-                principalTable: "Productos",
-                principalColumn: "IdProducto",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_MovimientosStock_Usuarios_UsuarioId",
-                table: "MovimientosStock",
-                column: "UsuarioId",
-                principalTable: "Usuarios",
-                principalColumn: "IdUsuario",
-                onDelete: ReferentialAction.Cascade);
+            migrationBuilder.DropTable(
+                name: "Proveedores");
         }
     }
 }

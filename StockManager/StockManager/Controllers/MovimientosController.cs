@@ -76,6 +76,7 @@
 
 
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StockManager.Models;
@@ -84,6 +85,7 @@ using System.Linq;
 
 namespace StockManager.Controllers
 {
+    [Authorize]
     public class MovimientosController : Controller
     {
         private readonly AppDbContext _context;

@@ -1,0 +1,35 @@
+﻿@model List<(StockManager.Models.ApplicationUser Usuario, string Rol)>
+@{
+    Layout = "_Layout";
+}
+
+<h2>Gestión de Usuarios</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Nombre Completo</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Usuario.Email</td>
+                <td>@item.Usuario.NombreCompleto</td>
+                <td>@item.Rol</td>
+                <td>
+                    <form asp-action="Delete" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="@item.Usuario.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Usuarios/Create" class="btn btn-primary">Crear nuevo usuario</a>

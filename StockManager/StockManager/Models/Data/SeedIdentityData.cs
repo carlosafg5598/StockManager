@@ -9,26 +9,45 @@ namespace StockManager.Models.Data
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            string[] roleNames = { "Administrador", "Encargado" };
+            //Creamos los roles
+            string[] roleNames = { "Jefe", "Administrador", "Empleado" };
 
-            foreach (var role in roleNames)
+            foreach (var roleName in roleNames)
             {
-                if (!await roleManager.RoleExistsAsync(role))
+                if (!await roleManager.RoleExistsAsync(roleName))
                 {
-                    await roleManager.CreateAsync(new IdentityRole(role));
+                    await roleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
 
-            var adminEmail = "admin@mail.com";
-            var admin = await userManager.FindByEmailAsync(adminEmail);
-            if (admin == null)
+            //Creamos un usuario por rol para pruebas
+
+            //Jefe
+            var jefeEmail = "jefe@mail.com";
+            if (await userManager.FindByEmailAsync(jefeEmail) == null)
             {
-                admin = new ApplicationUser { UserName = adminEmail, Email = adminEmail, NombreCompleto = "Administrador General" };
+                var jefe = new ApplicationUser { UserName = jefeEmail, Email = jefeEmail, NombreCompleto = "Jefe General" };
+                await userManager.CreateAsync(jefe, "1234");
+                await userManager.AddToRoleAsync(jefe, "Jefe");
+            }
+
+            //Administrador
+            var adminEmail = "admin@mail.com";
+            if (await userManager.FindByEmailAsync(adminEmail) == null)
+            {
+                var admin = new ApplicationUser { UserName = adminEmail, Email = adminEmail, NombreCompleto = "Administrador Almacén" };
                 await userManager.CreateAsync(admin, "1234");
                 await userManager.AddToRoleAsync(admin, "Administrador");
             }
+
+            //Empleado
+            var empleadoEmail = "empleado@mail.com";
+            if (await userManager.FindByEmailAsync(empleadoEmail) == null)
+            {
+                var empleado = new ApplicationUser { UserName = empleadoEmail, Email = empleadoEmail, NombreCompleto = "Empleado de Planta" };
+                await userManager.CreateAsync(empleado, "1234");
+                await userManager.AddToRoleAsync(empleado, "Empleado");
+            }
         }
-
-
     }
 }

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<h2>Crear Usuario</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<form method="post" asp-action="Create">
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Contraseña</label>
+        <input type="password" name="password" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Rol</label>
+        <select name="rol" class="form-select">
+            @foreach (var rol in ViewBag.Roles)
+            {
+                <option value="@rol">@rol</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Crear</button>
+</form>
+
+<a href="/Usuarios/Index" class="btn btn-secondary mt-3">Volver</a>
