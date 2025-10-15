@@ -86,8 +86,7 @@
               "RelativeToolTip": "StockManager\\Program.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T12:16:19.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T12:16:19.32Z"
             },
             {
               "$type": "Document",
@@ -99,8 +98,7 @@
               "RelativeToolTip": "StockManager\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAADMAAAAAAAAAAAAAAEoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T09:28:23.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T09:28:23.124Z"
             },
             {
               "$type": "Document",
@@ -112,8 +110,7 @@
               "RelativeToolTip": "StockManager\\Controllers\\ProductosController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:25:26.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T09:25:26.022Z"
             },
             {
               "$type": "Document",
@@ -125,8 +122,7 @@
               "RelativeToolTip": "StockManager\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:25:22.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T09:25:22.068Z"
             },
             {
               "$type": "Document",
@@ -151,8 +147,7 @@
               "RelativeToolTip": "StockManager\\Controllers\\MovimientosController.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAAAFcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:25:24.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T09:25:24.688Z"
             },
             {
               "$type": "Document",
@@ -164,8 +159,7 @@
               "RelativeToolTip": "StockManager\\Controllers\\LoginController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:25:23.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T09:25:23.905Z"
             }
           ]
         }
