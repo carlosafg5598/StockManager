@@ -85,7 +85,7 @@ using System.Linq;
 
 namespace StockManager.Controllers
 {
-    //[Authorize]
+    [Authorize(Roles ="Administrador,Empleado,Jefe")]
     public class MovimientosController : Controller
     {
         private readonly AppDbContext _context;
@@ -106,6 +106,7 @@ namespace StockManager.Controllers
         }
 
         // CREAR MOVIMIENTO - Formulario
+        [Authorize(Roles ="Empleado")]
         public IActionResult Create()
         {
             ViewBag.Productos = _context.Productos.Where(p => p.Activo).ToList();
@@ -114,6 +115,7 @@ namespace StockManager.Controllers
 
         // CREAR MOVIMIENTO - POST
         [HttpPost]
+        [Authorize(Roles = "Empleado")]
         public IActionResult Create(MovimientoStock movimiento)
         {
 
@@ -159,24 +161,52 @@ namespace StockManager.Controllers
             return View(movimiento);
         }
 
-        // OPCIONAL: Delete
-        public IActionResult Delete(int id)
+
+
+        [HttpPost]
+        [Authorize(Roles = "Administrador,Jefe")]
+        public async Task<IActionResult> Edit(MovimientoStock movimiento)
         {
-            var movimiento = _context.MovimientosStock
-                                     .Include(m => m.Producto)
-                                     .FirstOrDefault(m => m.IdMovimiento == id);
-            if (movimiento == null) return NotFound();
-            return View(movimiento);
+            if (!ModelState.IsValid) return View(movimiento);
+
+            _context.MovimientosStock.Update(movimiento);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
+        
+        [Authorize(Roles = "Administrador,Jefe")]
+        public async Task<IActionResult> Delete(int id)
         {
-            var movimiento = _context.MovimientosStock.Find(id);
+            var movimiento = await _context.MovimientosStock.FindAsync(id);
+            if (movimiento == null) return NotFound();
+
             _context.MovimientosStock.Remove(movimiento);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
+
+        //// OPCIONAL: Delete
+        //[Authorize(Roles = "Administrador,Jefe")]
+        //public IActionResult Delete(int id)
+        //{
+        //    var movimiento = _context.MovimientosStock
+        //                             .Include(m => m.Producto)
+        //                             .FirstOrDefault(m => m.IdMovimiento == id);
+        //    if (movimiento == null) return NotFound();
+        //    return View(movimiento);
+        //}
+
+        //[HttpPost, ActionName("Delete")]
+        //public IActionResult DeleteConfirmed(int id)
+        //{
+        //    var movimiento = _context.MovimientosStock.Find(id);
+        //    _context.MovimientosStock.Remove(movimiento);
+        //    _context.SaveChanges();
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }
 

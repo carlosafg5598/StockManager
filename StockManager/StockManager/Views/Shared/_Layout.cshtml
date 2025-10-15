@@ -31,18 +31,37 @@
                 <!-- Menú de navegación -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li> *@
+                        
                         <!-- Aquí puedes agregar más enlaces según roles -->
                     </ul>
 
                     <ul class="navbar-nav">
                         @if (SignInManager.IsSignedIn(User))
                         {
+                            @if (User.IsInRole("Jefe"))
+                            {
+                                <!-- El jefe puede acceder a todo -->
+                                <li class="nav-item"><a class="nav-link" asp-controller="Usuarios" asp-action="Index">Gestión Usuarios</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
+                            }
+
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <!-- Administrador ve Productos, Proveedores y Movimientos -->
+                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
+                            }
+
+                            @if (User.IsInRole("Empleado"))
+                            {
+                                <!-- Empleado ve solo Movimientos y Stock -->
+                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Ver Stock</a></li>
+                            }
+
                             <li class="nav-item">
                                 <a class="nav-link btn btn-outline-primary me-2" asp-controller="Perfil" asp-action="Editar">Editar perfil</a>
                             </li>

@@ -6,7 +6,7 @@ using StockManager.Models;
 
 namespace StockManager.Controllers
 {
-    //[Authorize] 
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,8 +18,8 @@ namespace StockManager.Controllers
             _userManager = userManager;
         }
 
-        
-        [AllowAnonymous] 
+
+        [AllowAnonymous]
         public IActionResult Index()
         {
             if (User.Identity != null && User.Identity.IsAuthenticated)

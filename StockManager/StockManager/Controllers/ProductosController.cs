@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StockManager.Controllers
 {
-    //[Authorize]
+    [Authorize(Roles = "Administrador,Jefe,Empleado")]
     public class ProductosController : Controller
     {
         private readonly AppDbContext _context;
@@ -27,25 +27,10 @@ namespace StockManager.Controllers
             return View(await _context.Productos.ToListAsync());
         }
 
-        // GET: Productos/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var producto = await _context.Productos
-                .FirstOrDefaultAsync(m => m.IdProducto == id);
-            if (producto == null)
-            {
-                return NotFound();
-            }
-
-            return View(producto);
-        }
 
         // GET: Productos/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
@@ -55,6 +40,7 @@ namespace StockManager.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdProducto,NombreProducto,DescripcionProducto,PrecioProducto,idProovedor,StockActual,Activo")] Producto producto)
         {
@@ -68,6 +54,7 @@ namespace StockManager.Controllers
         }
 
         // GET: Productos/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,10 +71,10 @@ namespace StockManager.Controllers
         }
 
         // POST: Productos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, [Bind("IdProducto,NombreProducto,DescripcionProducto,PrecioProducto,idProovedor,StockActual,Activo")] Producto producto)
         {
             if (id != producto.IdProducto)
@@ -119,6 +106,7 @@ namespace StockManager.Controllers
         }
 
         // GET: Productos/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +127,7 @@ namespace StockManager.Controllers
         // POST: Productos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var producto = await _context.Productos.FindAsync(id);
