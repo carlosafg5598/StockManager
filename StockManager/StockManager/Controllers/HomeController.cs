@@ -1,8 +1,10 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StockManager.Models;
+using StockManager.Models.Data;
+using System.Diagnostics;
 
 namespace StockManager.Controllers
 {
@@ -11,11 +13,13 @@ namespace StockManager.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly AppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, AppDbContext context)
         {
             _logger = logger;
             _userManager = userManager;
+            _context = context;
         }
 
 
@@ -46,7 +50,16 @@ namespace StockManager.Controllers
             ViewBag.Nombre = user.NombreCompleto ?? user.UserName;
             ViewBag.Rol = rol;
 
-            return View();
+            var ultimosMovimientos = await _context.MovimientosStock
+                .Include(m => m.Producto)      
+                .OrderByDescending(m => m.FechaMovimiento)
+                .Take(3)
+                .ToListAsync();
+
+            return View(ultimosMovimientos);
+
+
+            //return View();
         }
 
         [AllowAnonymous]

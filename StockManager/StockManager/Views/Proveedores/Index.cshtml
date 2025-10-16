@@ -1,0 +1,58 @@
+﻿@model IEnumerable<StockManager.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "Lista de Proveedores";
+}
+
+<h2 class="mb-3 text-center">Lista de Proveedores</h2>
+
+
+
+<div class="text-end mb-3">
+    <a class="btn btn-success" asp-action="Create">Nuevo Proveedor</a>
+</div>
+
+<table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark text-center">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Productos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.IdProveedor</td>
+                <td>@p.NombreProveedor</td>
+                <td>@p.TelefonoProveedor</td>
+                <td>@p.EmailProveedor</td>
+                <td>@p.DireccionProveedor</td>
+                <td>
+                    @if (p.Productos != null && p.Productos.Any())
+                    {
+                        <ul class="mb-0">
+                            @foreach (var prod in p.Productos)
+                            {
+                                <li>@prod.NombreProducto</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin productos</span>
+                    }
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm me-1" asp-action="Edit" asp-route-id="@p.IdProveedor">Editar</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@p.IdProveedor">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿@model StockManager.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Eliminar Proveedor";
+}
+
+<h2 class="text-danger text-center mb-4">¿Eliminar este proveedor?</h2>
+
+<div class="card w-75 mx-auto shadow-sm p-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.NombreProveedor</h5>
+        <p><strong>Teléfono:</strong> @Model.TelefonoProveedor</p>
+        <p><strong>Email:</strong> @Model.EmailProveedor</p>
+        <p><strong>Dirección:</strong> @Model.DireccionProveedor</p>
+    </div>
+
+    <div class="card-footer text-center">
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="IdProveedor" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+        </form>
+    </div>
+</div>
+
