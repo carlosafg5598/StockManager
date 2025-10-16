@@ -29,6 +29,9 @@ Después de dar una pausa probé a abrir esta rama del proyecto desde el ordenad
 Creación de los controladores oportunos así como de las vistas dependiendo de que tipo de usuario sea el que inicia sesión (roles)
 Corregir inicio de sesión (explicado en sección errores)
 
+## Séptima Subida (16/10/25)
+1) Creación del CRUD de proveedores
+
 ## Errores a lo largo del proyecto
 1) 10/10/25
 A la hora de hacer la gestión de los moviminetos, conecta bien con la base de datos, pero a la hora de registrar el movimiento falla debido a la clave foraneo del producto
