@@ -1,58 +1,78 @@
 ﻿@model StockManager.Models.Producto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear producto";
 }
 
-<h1>Create</h1>
+<div class="card mx-auto mt-4" style="max-width:800px;">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Nuevo producto</h4>
+    </div>
 
-<h4>Producto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NombreProducto" class="control-label"></label>
+    <div class="card-body">
+        @* Mensajes globales *@
+        @if (TempData["Exito"] != null)
+        {
+            <div class="alert alert-success">@TempData["Exito"]</div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="NombreProducto" class="form-label"></label>
                 <input asp-for="NombreProducto" class="form-control" />
                 <span asp-validation-for="NombreProducto" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DescripcionProducto" class="control-label"></label>
-                <input asp-for="DescripcionProducto" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="DescripcionProducto" class="form-label"></label>
+                <textarea asp-for="DescripcionProducto" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="DescripcionProducto" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PrecioProducto" class="control-label"></label>
-                <input asp-for="PrecioProducto" class="form-control" />
-                <span asp-validation-for="PrecioProducto" class="text-danger"></span>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="PrecioProducto" class="form-label"></label>
+                    <input asp-for="PrecioProducto" class="form-control" type="number" step="0.01" min="0" />
+                    <span asp-validation-for="PrecioProducto" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="StockActual" class="form-label"></label>
+                    <input asp-for="StockActual" class="form-control" type="number" min="0" />
+                    <span asp-validation-for="StockActual" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="idProovedor" class="control-label"></label>
-                <input asp-for="idProovedor" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="idProovedor" class="form-label">Proveedor</label>
+                <select asp-for="idProovedor" class="form-select"
+                        asp-items="@(ViewBag.Proveedores as SelectList)">
+                    <option value="">-- Sin proveedor --</option>
+                </select>
                 <span asp-validation-for="idProovedor" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="StockActual" class="control-label"></label>
-                <input asp-for="StockActual" class="form-control" />
-                <span asp-validation-for="StockActual" class="text-danger"></span>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" asp-for="Activo" />
+                <label class="form-check-label" asp-for="Activo"></label>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Volver</a>
+                <button type="submit" class="btn btn-success">Crear producto</button>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -11,8 +11,8 @@ using StockManager.Models.Data;
 namespace StockManager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251014062409_IdentitySetup")]
-    partial class IdentitySetup
+    [Migration("20251017064454_CreateIdentitySchema")]
+    partial class CreateIdentitySchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

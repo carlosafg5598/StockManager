@@ -29,32 +29,32 @@ namespace StockManager.Controllers
 
 
 
-        // GET: Productos/Create
-        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
+            ViewBag.Proveedores = new SelectList(_context.Proveedores.OrderBy(p => p.NombreProveedor).ToList(), "IdProveedor", "NombreProveedor");
             return View();
         }
 
         // POST: Productos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProducto,NombreProducto,DescripcionProducto,PrecioProducto,idProovedor,StockActual,Activo")] Producto producto)
+        public IActionResult Create(Producto producto)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(producto);
-                await _context.SaveChangesAsync();
+                _context.Productos.Add(producto);
+                _context.SaveChanges();
+                TempData["Exito"] = "Producto creado correctamente.";
                 return RedirectToAction(nameof(Index));
             }
+
+            // Si hay error, volvemos a cargar la lista de proveedores para el select
+            ViewBag.Proveedores = new SelectList(_context.Proveedores.OrderBy(p => p.NombreProveedor).ToList(), "IdProveedor", "NombreProveedor", producto.idProovedor);
             return View(producto);
         }
 
         // GET: Productos/Edit/5
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Jefe")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace StockManager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Jefe")]
         public async Task<IActionResult> Edit(int id, [Bind("IdProducto,NombreProducto,DescripcionProducto,PrecioProducto,idProovedor,StockActual,Activo")] Producto producto)
         {
             if (id != producto.IdProducto)
@@ -106,7 +106,7 @@ namespace StockManager.Controllers
         }
 
         // GET: Productos/Delete/5
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Jefe")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -127,7 +127,7 @@ namespace StockManager.Controllers
         // POST: Productos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Jefe")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var producto = await _context.Productos.FindAsync(id);

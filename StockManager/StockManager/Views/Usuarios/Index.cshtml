@@ -18,14 +18,15 @@
         @foreach (var item in Model)
         {
             <tr>
+
+                
                 <td>@item.Usuario.Email</td>
                 <td>@item.Usuario.NombreCompleto</td>
                 <td>@item.Rol</td>
+                
                 <td>
-                    <form asp-action="Delete" method="post" style="display:inline">
-                        <input type="hidden" name="id" value="@item.Usuario.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                    </form>
+                    <a asp-action="Edit" asp-route-id="@item.Usuario.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Usuario.Id" class="btn btn-danger btn-sm">Eliminar</a>
                 </td>
             </tr>
         }

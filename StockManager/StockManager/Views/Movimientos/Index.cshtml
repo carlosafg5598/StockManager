@@ -11,20 +11,26 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Id</th>
+            <th>Usuario</th>
             <th>Producto</th>
             <th>Cantidad</th>
-            <th>Tipo</th>
+            <th>Movimiento</th>
             <th>Fecha</th>
+            <th>Descripción</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var m in Model)
         {
             <tr>
+                <td>@m.IdMovimiento</td>
+                <td>@m.Usuario.NombreCompleto</td>
                 <td>@m.Producto.NombreProducto</td>
                 <td>@m.Cantidad</td>
                 <td>@m.TipoMovimiento</td>
                 <td>@m.FechaMovimiento.ToString("g")</td>
+                <td>@m.Descripcion</td>
             </tr>
         }
     </tbody>
