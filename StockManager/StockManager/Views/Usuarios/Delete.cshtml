@@ -1,0 +1,25 @@
+﻿@model StockManager.Models.ApplicationUser
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Eliminar usuario";
+}
+
+<h2 class="text-danger">Eliminar usuario</h2>
+
+<div class="card w-75 mx-auto p-3">
+    <div class="card-body">
+        <p>¿Estás seguro de que quieres eliminar este usuario?</p>
+        <ul>
+            <li><strong>Email:</strong> @Model.Email</li>
+            <li><strong>Nombre:</strong> @Model.NombreCompleto</li>
+            <li><strong>Teléfono:</strong> @Model.PhoneNumber</li>
+        </ul>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            @Html.AntiForgeryToken()
+        </form>
+    </div>
+</div>

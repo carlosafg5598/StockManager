@@ -35,46 +35,168 @@ namespace StockManager.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
-            ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+            ViewBag.Roles = _roleManager.Roles
+                .Where(r => r.Name == "Empleado" || r.Name == "Administrador")
+                .Select(r => r.Name)
+                .ToList();
+
             return View();
         }
 
         // POST: Usuarios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string email, string password, string rol)
+        public async Task<IActionResult> Create(string NombreCompleto, string email, string password, string rol, string PhoneNumber)
         {
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(rol))
+            // Validación básica
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(rol))
             {
-                ViewBag.Error = "Todos los campos son obligatorios.";
-                ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
+                ViewBag.Error = "Todos los campos obligatorios deben rellenarse.";
+                ViewBag.Roles = _roleManager.Roles
+                    .Where(r => r.Name == "Empleado" || r.Name == "Administrador")
+                    .Select(r => r.Name)
+                    .ToList();
                 return View();
             }
 
-            var user = new ApplicationUser { UserName = email, Email = email, NombreCompleto = email.Split('@')[0] };
+            var user = new ApplicationUser
+            {
+                UserName = email,
+                Email = email,
+                NombreCompleto = string.IsNullOrWhiteSpace(NombreCompleto) ? email.Split('@')[0] : NombreCompleto,
+                PhoneNumber = PhoneNumber
+            };
+
             var result = await _userManager.CreateAsync(user, password);
 
-            if (result.Succeeded)
+            if (!result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, rol);
-                return RedirectToAction("Index");
+                ViewBag.Error = string.Join(" ", result.Errors.Select(e => e.Description));
+                ViewBag.Roles = _roleManager.Roles
+                    .Where(r => r.Name == "Empleado" || r.Name == "Administrador")
+                    .Select(r => r.Name)
+                    .ToList();
+                return View();
             }
 
-            ViewBag.Error = string.Join(", ", result.Errors.Select(e => e.Description));
-            ViewBag.Roles = _roleManager.Roles.Select(r => r.Name).ToList();
-            return View();
+            // Asignar rol (por seguridad, filtrar rol permitido)
+            if (rol != "Empleado" && rol != "Administrador")
+            {
+                // por seguridad, si alguien inyecta otro rol, lo rechazamos
+                await _userManager.DeleteAsync(user);
+                ViewBag.Error = "Rol no válido.";
+                ViewBag.Roles = _roleManager.Roles
+                    .Where(r => r.Name == "Empleado" || r.Name == "Administrador")
+                    .Select(r => r.Name)
+                    .ToList();
+                return View();
+            }
+
+            await _userManager.AddToRoleAsync(user, rol);
+
+            //TempData["Exito"] = "Usuario creado correctamente.";
+            return RedirectToAction(nameof(Index));
         }
 
-        // POST: Usuarios/Delete
-        [HttpPost]
+
+        // GET: Usuarios/Delete/id  -> muestra confirmación
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
+            if (string.IsNullOrEmpty(id)) return NotFound();
+
             var user = await _userManager.FindByIdAsync(id);
-            if (user != null)
+            if (user == null) return NotFound();
+
+            return View(user);
+        }
+
+        // POST: Usuarios/Delete (confirmación)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return RedirectToAction(nameof(Index));
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return RedirectToAction(nameof(Index));
+
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
             {
-                await _userManager.DeleteAsync(user);
+                // Opcional: mostrar errores en Index o en vista de Delete
+                //TempData["Error"] = string.Join(" ", result.Errors.Select(e => e.Description));
+                return RedirectToAction(nameof(Index));
             }
+
+            //TempData["Exito"] = "Usuario eliminado correctamente.";
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+        // GET: Usuarios/Edit/id
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+                return NotFound();
+
+            // Traemos solo roles permitidos (Empleado y Administrador)
+            ViewBag.Roles = _roleManager.Roles
+                .Where(r => r.Name == "Empleado" || r.Name == "Administrador")
+                .Select(r => r.Name)
+                .ToList();
+
+            // Rol actual del usuario
+            var currentRole = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+
+            ViewBag.CurrentRole = currentRole;
+
+            return View(user);
+        }
+
+        // POST: Usuarios/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(string id, string email, string telefono, string rol)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+                return NotFound();
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(rol))
+            {
+                ViewBag.Error = "Email y rol son obligatorios.";
+                return View(user);
+            }
+
+            // Actualizamos datos básicos
+            user.Email = email;
+            user.UserName = email;
+            user.PhoneNumber = telefono;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                ViewBag.Error = string.Join(", ", result.Errors.Select(e => e.Description));
+                return View(user);
+            }
+
+            // Actualizamos el rol
+            var currentRoles = await _userManager.GetRolesAsync(user);
+            if (currentRoles.Any())
+                await _userManager.RemoveFromRolesAsync(user, currentRoles);
+
+            await _userManager.AddToRoleAsync(user, rol);
+
             return RedirectToAction("Index");
         }
+
     }
 }

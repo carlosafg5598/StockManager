@@ -2,6 +2,19 @@
 @inject SignInManager<StockManager.Models.ApplicationUser> SignInManager
 @inject UserManager<StockManager.Models.ApplicationUser> UserManager
 
+@{
+    var user = SignInManager.IsSignedIn(User) ? await UserManager.GetUserAsync(User) : null;
+
+    var fuente = user?.FuentePreferida ?? "Arial";
+    var tema = user?.TemaColor ?? "claro";
+    var fondo = user?.FondoPantalla;
+    var fotoPerfil = user?.FotoPerfil ?? "/images/Sto.png";
+
+    // Colores según tema
+    var bgColor = tema == "oscuro" ? "#121212" : "#ffffff";
+    var textColor = tema == "oscuro" ? "#eaeaea" : "#000000";
+}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,59 +24,103 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/StockManager.styles.css" asp-append-version="true" />
+
+    <style>
+        body {
+            font-family: @(fuente ?? "Arial"), sans-serif !important;
+            background-color: @bgColor;
+            color: @textColor;
+            background-image: url('@fondo');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar, footer {
+            background-color: @(tema == "oscuro" ? "#1e1e1e" : "#f8f9fa") !important;
+            color: @textColor !important;
+        }
+
+            .navbar a, .footer {
+                color: @textColor !important;
+            }
+
+        .navbar-brand img {
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid @(tema == "oscuro" ? "#eaeaea" : "#000000");
+        }
+
+        /* Botones consistentes con el tema */
+        .btn-outline-primary {
+            color: @(tema == "oscuro" ? "#eaeaea" : "#0d6efd");
+            border-color: @(tema == "oscuro" ? "#eaeaea" : "#0d6efd");
+        }
+
+            .btn-outline-primary:hover {
+                background-color: @(tema == "oscuro" ? "#eaeaea" : "#0d6efd");
+                color: @(tema == "oscuro" ? "#121212" : "#ffffff");
+            }
+
+        /* Fondo con opacidad para el contenido */
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, @(tema == "oscuro" ? "0.05" : "0.8") );
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom shadow-sm mb-3">
+        <nav class="navbar navbar-expand-sm border-bottom shadow-sm mb-3">
             <div class="container-fluid">
-                <!-- Logo y nombre -->
+                <!-- Logo dinámico (foto de perfil o logo por defecto) -->
                 <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/Sto.png" alt="Logo" style="height:30px;" class="me-2" />
-                    
+                    <img src="@fotoPerfil" alt="Logo" class="me-2" />
+                    <span class="fw-bold">StockManager</span>
                 </a>
 
-                <!-- Botón toggler para responsive -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Botón toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Menú de navegación -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
-                        
-                        <!-- Aquí puedes agregar más enlaces según roles -->
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            @if (User.IsInRole("Jefe"))
+                            {
+                                <li class="nav-item"><a class="nav-link" asp-controller="Usuarios" asp-action="Index">Usuarios</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
+                            }
+                            else if (User.IsInRole("Administrador"))
+                            {
+                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
+                            }
+                            else if (User.IsInRole("Empleado"))
+                            {
+                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Ver Stock</a></li>
+                            }
+                        }
                     </ul>
 
                     <ul class="navbar-nav">
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            @if (User.IsInRole("Jefe"))
-                            {
-                                <!-- El jefe puede acceder a todo -->
-                                <li class="nav-item"><a class="nav-link" asp-controller="Usuarios" asp-action="Index">Gestión Usuarios</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
-                            }
-
-                            @if (User.IsInRole("Administrador"))
-                            {
-                                <!-- Administrador ve Productos, Proveedores y Movimientos -->
-                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Proveedores" asp-action="Index">Proveedores</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
-                            }
-
-                            @if (User.IsInRole("Empleado"))
-                            {
-                                <!-- Empleado ve solo Movimientos y Stock -->
-                                <li class="nav-item"><a class="nav-link" asp-controller="Movimientos" asp-action="Index">Movimientos</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Ver Stock</a></li>
-                            }
-
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-primary me-2" asp-controller="Perfil" asp-action="Editar">Editar perfil</a>
+                                <a class="nav-link btn btn-outline-primary me-2" asp-controller="Perfil" asp-action="Edit">Editar perfil</a>
                             </li>
                             <li class="nav-item">
                                 <form asp-controller="Login" asp-action="Logout" method="post" class="d-inline">
@@ -83,7 +140,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container content-wrapper">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -91,7 +148,7 @@
 
     <footer class="border-top footer text-muted mt-5">
         <div class="container text-center">
-            &copy; 2025 StockManager 
+            &copy; 2025 - StockManager
         </div>
     </footer>
 

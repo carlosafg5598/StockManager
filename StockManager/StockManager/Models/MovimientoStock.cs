@@ -18,7 +18,7 @@ namespace StockManager.Models
 
         [Required]
         //[MaxLength(1)]
-        public string TipoMovimiento { get; set; }  
+        public string? TipoMovimiento { get; set; }  
 
         [Required]
         public int Cantidad { get; set; }

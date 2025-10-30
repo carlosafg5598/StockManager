@@ -1,0 +1,65 @@
+﻿@model StockManager.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Editar Perfil";
+}
+
+<h2 class="mb-4 text-center">Editar Perfil</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data" method="post" class="w-75 mx-auto">
+    <div class="text-center mb-3">
+        @if (!string.IsNullOrEmpty(Model.FotoPerfil))
+        {
+            <img src="@Model.FotoPerfil" alt="Foto de perfil" class="rounded-circle" width="120" height="120" />
+        }
+        else
+        {
+            <img src="/images/default-user.png" alt="Foto de perfil" class="rounded-circle" width="120" height="120" />
+        }
+    </div>
+
+    <div class="mb-3">
+        <label>Foto de perfil</label>
+        <input type="file" name="FotoPerfil" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Nombre completo</label>
+        <input asp-for="NombreCompleto" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Fuente preferida</label>
+        <select asp-for="FuentePreferida" class="form-select">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Tema</label>
+        <select asp-for="TemaColor" class="form-select">
+            <option value="claro">Claro</option>
+            <option value="oscuro">Oscuro</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Fondo de pantalla</label>
+        <input type="file" name="FondoPantalla" class="form-control" accept="image/*" />
+        @if (!string.IsNullOrEmpty(Model.FondoPantalla))
+        {
+            <img src="@Model.FondoPantalla" alt="Fondo" width="200" class="mt-2 rounded shadow-sm" />
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>

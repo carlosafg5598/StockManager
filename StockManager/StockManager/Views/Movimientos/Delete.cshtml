@@ -1,5 +1,26 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model StockManager.Models.MovimientoStock
+
 @{
+    Layout = "_Layout";
 }
+
+<h2 class="text-danger text-center mb-4">¿Eliminar este movimiento?</h2>
+
+<div class="card w-75 mx-auto shadow-sm p-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Producto?.NombreProducto</h5>
+        <p><strong>Tipo:</strong> @Model.TipoMovimiento</p>
+        <p><strong>Cantidad:</strong> @Model.Cantidad</p>
+        <p><strong>Fecha:</strong> @Model.FechaMovimiento.ToString("g")</p>
+        <p><strong>Usuario:</strong> @Model.Usuario?.NombreCompleto</p>
+        <p><strong>Descripción:</strong> @Model.Descripcion</p>
+    </div>
+
+    <div class="card-footer text-center">
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="IdMovimiento" />
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+        </form>
+    </div>
+</div>

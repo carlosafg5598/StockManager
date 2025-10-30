@@ -1,0 +1,55 @@
+﻿@model StockManager.Models.ApplicationUser
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="card mx-auto mt-4" style="max-width:600px;">
+    <div class="card-header bg-warning text-dark">
+        <h4 class="mb-0">Editar usuario</h4>
+    </div>
+
+    <div class="card-body">
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <form method="post" asp-action="Edit">
+            <input type="hidden" name="id" value="@Model.Id" />
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" value="@Model.Email" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" class="form-control" value="@Model.PhoneNumber" placeholder="+34 612 345 678" />
+            </div>
+
+            <div class="mb-3">
+                <label>Rol</label>
+                <select name="rol" class="form-select">
+                    @foreach (var rol in ViewBag.Roles)
+                    {
+                        if (rol == ViewBag.CurrentRole)
+                        {
+                            <option selected value="@rol">@rol</option>
+                        }
+                        else
+                        {
+                            <option value="@rol">@rol</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Volver</a>
+                <button type="submit" class="btn btn-success">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+

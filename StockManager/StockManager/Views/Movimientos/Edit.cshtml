@@ -1,5 +1,39 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model StockManager.Models.MovimientoStock
+
 @{
+    Layout = "_Layout";
 }
+
+<h2>Editar Movimiento</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IdMovimiento" />
+
+    <div class="mb-3">
+        <label class="form-label">Producto</label>
+        <select class="form-select" asp-for="IdProducto"
+                asp-items="@(new SelectList(ViewBag.Productos, "IdProducto", "NombreProducto"))">
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Cantidad</label>
+        <input type="number" class="form-control" asp-for="Cantidad" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Tipo de Movimiento</label>
+        <select class="form-select" asp-for="TipoMovimiento">
+            <option value="Entrada">Entrada</option>
+            <option value="Salida">Salida</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea class="form-control" asp-for="Descripcion" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+</form>

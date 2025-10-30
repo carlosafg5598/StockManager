@@ -44,12 +44,12 @@ namespace StockManager.Controllers
             {
                 _context.Productos.Add(producto);
                 _context.SaveChanges();
-                TempData["Exito"] = "Producto creado correctamente.";
+                //TempData["Exito"] = "Producto creado correctamente.";
                 return RedirectToAction(nameof(Index));
             }
 
             // Si hay error, volvemos a cargar la lista de proveedores para el select
-            ViewBag.Proveedores = new SelectList(_context.Proveedores.OrderBy(p => p.NombreProveedor).ToList(), "IdProveedor", "NombreProveedor", producto.idProovedor);
+            ViewBag.Proveedores = new SelectList(_context.Proveedores.OrderBy(p => p.NombreProveedor).ToList(), "IdProveedor", "NombreProveedor", producto.IdProveedor);
             return View(producto);
         }
 
@@ -57,18 +57,15 @@ namespace StockManager.Controllers
         [Authorize(Roles = "Administrador,Jefe")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var producto = await _context.Productos.FindAsync(id);
-            if (producto == null)
-            {
-                return NotFound();
-            }
+            if (producto == null) return NotFound();
+
+            ViewBag.Proveedores = new SelectList(_context.Proveedores.OrderBy(p => p.NombreProveedor), "IdProveedor", "NombreProveedor", producto.IdProveedor);
             return View(producto);
         }
+
 
         // POST: Productos/Edit/5
 

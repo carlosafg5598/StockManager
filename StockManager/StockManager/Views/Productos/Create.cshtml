@@ -50,12 +50,12 @@
             </div>
 
             <div class="mb-3">
-                <label asp-for="idProovedor" class="form-label">Proveedor</label>
-                <select asp-for="idProovedor" class="form-select"
+                <label asp-for="IdProveedor" class="form-label">Proveedor</label>
+                <select asp-for="IdProveedor" class="form-select"
                         asp-items="@(ViewBag.Proveedores as SelectList)">
                     <option value="">-- Sin proveedor --</option>
                 </select>
-                <span asp-validation-for="idProovedor" class="text-danger"></span>
+                <span asp-validation-for="IdProveedor" class="text-danger"></span>
             </div>
 
             <div class="form-check mb-3">

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StockManager.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateIdentitySchema : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -182,17 +182,16 @@ namespace StockManager.Migrations
                     NombreProducto = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     DescripcionProducto = table.Column<string>(type: "TEXT", maxLength: 250, nullable: true),
                     PrecioProducto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    idProovedor = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdProveedor = table.Column<int>(type: "INTEGER", nullable: true),
                     StockActual = table.Column<int>(type: "INTEGER", nullable: false),
-                    Activo = table.Column<bool>(type: "INTEGER", nullable: false),
-                    ProveedorIdProveedor = table.Column<int>(type: "INTEGER", nullable: true)
+                    Activo = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Productos", x => x.IdProducto);
                     table.ForeignKey(
-                        name: "FK_Productos_Proveedores_ProveedorIdProveedor",
-                        column: x => x.ProveedorIdProveedor,
+                        name: "FK_Productos_Proveedores_IdProveedor",
+                        column: x => x.IdProveedor,
                         principalTable: "Proveedores",
                         principalColumn: "IdProveedor");
                 });
@@ -274,9 +273,9 @@ namespace StockManager.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productos_ProveedorIdProveedor",
+                name: "IX_Productos_IdProveedor",
                 table: "Productos",
-                column: "ProveedorIdProveedor");
+                column: "IdProveedor");
         }
 
         /// <inheritdoc />

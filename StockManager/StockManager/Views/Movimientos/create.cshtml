@@ -1,19 +1,17 @@
-﻿
-@model StockManager.Models.MovimientoStock
+﻿@model StockManager.Models.MovimientoStock
 
 @{
     Layout = "_Layout";
 }
 
 <h2>Registrar Movimiento</h2>
-@* @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" }) *@
-
 
 <form asp-action="Create" method="post">
     <div class="mb-3">
         <label class="form-label">Producto</label>
         <select class="form-select" asp-for="IdProducto"
-                asp-items="@(new SelectList(ViewBag.Productos, "IdProducto", "NombreProducto"))"></select>
+                asp-items="@(new SelectList(ViewBag.Productos, "IdProducto", "NombreProducto"))">
+        </select>
     </div>
 
     <div class="mb-3">
@@ -21,7 +19,6 @@
         <input type="number" class="form-control" asp-for="Cantidad" min="1" required />
         <span asp-validation-for="Cantidad" class="text-danger"></span>
     </div>
-
 
     <div class="mb-3">
         <label class="form-label">Tipo de Movimiento</label>
@@ -31,5 +28,11 @@
         </select>
     </div>
 
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <textarea class="form-control" asp-for="Descripcion" rows="3"></textarea>
+    </div>
+
     <button type="submit" class="btn btn-success">Registrar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
 </form>

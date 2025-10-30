@@ -12,7 +12,7 @@ namespace StockManager.Models
         [Required]
         [MaxLength(100)]
         [Display(Name = "Nombre del producto")]
-        public string NombreProducto {  get; set; }
+        public string? NombreProducto {  get; set; }
         
         
         [MaxLength(250)]
@@ -25,7 +25,7 @@ namespace StockManager.Models
         public decimal PrecioProducto {  get; set; }
 
         [Display(Name = "Proveedor")]
-        public int? idProovedor {  get; set; }
+        public int? IdProveedor {  get; set; }
         
         
         public int StockActual {  get; set; }
@@ -35,6 +35,7 @@ namespace StockManager.Models
 
 
         //Relación con Proveedor
+        [ForeignKey("IdProveedor")]
         public Proveedor? Proveedor { get; set; }
 
         //Relación con Movimientos

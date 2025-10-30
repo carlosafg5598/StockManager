@@ -164,6 +164,15 @@ namespace StockManager.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("FondoPantalla")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FotoPerfil")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FuentePreferida")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
 
@@ -192,6 +201,9 @@ namespace StockManager.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TemaColor")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -261,6 +273,9 @@ namespace StockManager.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("IdProveedor")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("NombreProducto")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -269,18 +284,12 @@ namespace StockManager.Migrations
                     b.Property<decimal>("PrecioProducto")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("ProveedorIdProveedor")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("StockActual")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("idProovedor")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IdProducto");
 
-                    b.HasIndex("ProveedorIdProveedor");
+                    b.HasIndex("IdProveedor");
 
                     b.ToTable("Productos");
                 });
@@ -385,7 +394,7 @@ namespace StockManager.Migrations
                 {
                     b.HasOne("StockManager.Models.Proveedor", "Proveedor")
                         .WithMany("Productos")
-                        .HasForeignKey("ProveedorIdProveedor");
+                        .HasForeignKey("IdProveedor");
 
                     b.Navigation("Proveedor");
                 });

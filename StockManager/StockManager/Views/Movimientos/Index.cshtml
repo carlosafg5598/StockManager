@@ -3,10 +3,17 @@
 @{
     Layout = "_Layout";
 }
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
 
 <h2>Movimientos de Stock</h2>
 
-<a class="btn btn-primary mb-3" href="/Movimientos/Create">Registrar nuevo movimiento</a>
+<a class="btn btn-primary mb-3" asp-action="Create">Registrar nuevo movimiento</a>
 
 <table class="table table-striped">
     <thead>
@@ -18,6 +25,7 @@
             <th>Movimiento</th>
             <th>Fecha</th>
             <th>Descripción</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -25,14 +33,18 @@
         {
             <tr>
                 <td>@m.IdMovimiento</td>
-                <td>@m.Usuario.NombreCompleto</td>
-                <td>@m.Producto.NombreProducto</td>
+                <td>@(m.Usuario?.NombreCompleto ?? "Sin usuario")</td>
+                <td>@(m.Producto?.NombreProducto ?? "Producto eliminado")</td>
                 <td>@m.Cantidad</td>
                 <td>@m.TipoMovimiento</td>
                 <td>@m.FechaMovimiento.ToString("g")</td>
                 <td>@m.Descripcion</td>
+                <td>
+                    <!-- Botones de Editar y Eliminar -->
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@m.IdMovimiento">Editar</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@m.IdMovimiento">Eliminar</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
-

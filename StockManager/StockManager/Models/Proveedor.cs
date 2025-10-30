@@ -9,7 +9,7 @@ namespace StockManager.Models
 
         [Required]
         [MaxLength(100)]
-        public string NombreProveedor { get; set; }
+        public string? NombreProveedor { get; set; }
 
         [MaxLength(50)]
         public string? TelefonoProveedor { get; set; }

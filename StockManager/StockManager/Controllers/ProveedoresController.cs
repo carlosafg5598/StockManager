@@ -45,7 +45,7 @@ namespace StockManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            TempData["Error"] = "Error al crear el proveedor. Verifica los datos.";
+            //TempData["Error"] = "Error al crear el proveedor. Verifica los datos.";
             return View(proveedor);
         }
 
@@ -68,11 +68,11 @@ namespace StockManager.Controllers
             {
                 _context.Proveedores.Update(proveedor);
                 _context.SaveChanges();
-                TempData["Exito"] = "Proveedor actualizado correctamente.";
+                //TempData["Exito"] = "Proveedor actualizado correctamente.";
                 return RedirectToAction(nameof(Index));
             }
 
-            TempData["Error"] = "Error al actualizar el proveedor.";
+            //TempData["Error"] = "Error al actualizar el proveedor.";
             return View(proveedor);
         }
 
@@ -89,21 +89,29 @@ namespace StockManager.Controllers
             return View(proveedor);
         }
 
-        
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrador,Jefe")]
         public IActionResult DeleteConfirmed(int id)
         {
-            var proveedor = _context.Proveedores.Find(id);
+            var proveedor = _context.Proveedores
+                .Include(p => p.Productos)
+                .FirstOrDefault(p => p.IdProveedor == id);
+
             if (proveedor == null) return NotFound();
+
+            if (proveedor.Productos != null && proveedor.Productos.Any())
+            {
+                ModelState.AddModelError("", "No puedes eliminar este proveedor porque tiene productos asociados.");
+                return View("Delete", proveedor);
+            }
 
             _context.Proveedores.Remove(proveedor);
             _context.SaveChanges();
-            TempData["Exito"] = "Proveedor eliminado correctamente.";
-
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
 
