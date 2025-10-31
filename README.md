@@ -4,7 +4,7 @@
 
 ### 1) 
 
-1) Lista de las tareas pendientes de la primera semana (voy tarde)
+1) Lista de las tareas pendientes de la primera semana 
 2) Esquema de la base de datos
 3) Proyecto asp.Net creado
 
@@ -55,7 +55,10 @@ Después de crear la vista para editar perfiles y probar los diferentes apartado
 
 ## Cursos Referencia
 
-1) Curso sobre asp.Net con MVC: https://www.youtube.com/watch?v=28LjewDjaz4&t=3458s  (curso visto)
-2) Segundo curso sobre Asp.Net con MVC: https://www.youtube.com/watch?v=16N5OhcrLws&list=PLx2nia7-PgoDptcrh4k4ZStjpVLZbS7rU&index=1  (curso visto)
+1) Curso sobre asp.Net con MVC: https://www.youtube.com/watch?v=28LjewDjaz4&t=3458s  
+2) Segundo curso sobre Asp.Net con MVC: https://www.youtube.com/watch?v=16N5OhcrLws&list=PLx2nia7-PgoDptcrh4k4ZStjpVLZbS7rU&index=1  
+3) Identity: https://www.youtube.com/watch?v=0PZpjDYT0ZQ&t=1129s
+4) Autenticación: https://www.youtube.com/watch?v=IvoDzgrjMOY
+5) Bootstrap 5: https://www.youtube.com/watch?v=QCw0L6FupQ0
 
 
