@@ -52,6 +52,8 @@ Para poder realizar el control de los movimientos, decidí implementar ya el ide
 Después de gestionar las vistas me vi con la problemática de que puedo acceder a la vista de cada uno de los diferentes roles sin iniciar sesión
 4) 30/10/25
 Después de crear la vista para editar perfiles y probar los diferentes apartados que se pueden modificar veo que las fuentes no se modifican, sin embargo si me registra el cambio
+5) 31/10/25
+Creando la vista de informes (en la cual he decidido que se trate sobre poder filtrar los movimientos y generar pdf) me encontré con el error de que si elimino movimientos creados las cantidades de esos movimintos siguen afectando a los productos
 
 ## Cursos Referencia
 
