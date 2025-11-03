@@ -39,14 +39,7 @@ namespace StockManager.Controllers
             var roles = await _userManager.GetRolesAsync(user);
             var rol = roles.FirstOrDefault();
 
-            // Redirigimos según el rol
-            //return rol switch
-            //{
-            //    "Jefe" => RedirectToAction("Index", "Usuarios"),
-            //    "Administrador" => RedirectToAction("Index", "Productos"),
-            //    "Empleado" => RedirectToAction("Index", "Movimientos"),
-            //    _ => RedirectToAction("Index", "Home")
-            //};
+            
             return RedirectToAction("Dashboard", "Home");
         }
 

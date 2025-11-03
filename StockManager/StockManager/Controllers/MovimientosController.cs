@@ -7,7 +7,7 @@ using StockManager.Models.Data;
 
 namespace StockManager.Controllers
 {
-    //[Authorize(Roles = "Administrador,Empleado,Jefe")]
+    [Authorize(Roles = "Administrador,Empleado,Jefe")]
     public class MovimientosController : Controller
     {
         private readonly AppDbContext _context;
@@ -32,12 +32,12 @@ namespace StockManager.Controllers
         //[Authorize(Roles = "Jefe,Empleado")]
         public IActionResult Create()
         {
-
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
-                return RedirectToAction("Index"); // Volvemos a la vista de movimientos
+                TempData["Error"] = "No tienes permisos para crear movimientos.";
+                return RedirectToAction("Index");
             }
+
             ViewBag.Productos = _context.Productos.Where(p => p.Activo).ToList();
             return View();
         }
@@ -48,15 +48,18 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
-                return RedirectToAction("Index"); // Volvemos a la vista de movimientos
+                TempData["Error"] = "No tienes permisos para crear movimientos.";
+                return RedirectToAction("Index");
             }
+
             var user = await _userManager.GetUserAsync(User);
 
             if (ModelState.IsValid)
             {
                 var producto = _context.Productos.Find(movimiento.IdProducto);
+                if (producto == null) return NotFound();
 
+                // Validación: no permitir salida si no hay stock suficiente
                 if (movimiento.TipoMovimiento == "Salida" && movimiento.Cantidad > producto.StockActual)
                 {
                     ModelState.AddModelError("Cantidad", $"No hay suficiente stock disponible. Stock actual: {producto.StockActual}");
@@ -64,16 +67,17 @@ namespace StockManager.Controllers
                 else
                 {
                     movimiento.FechaMovimiento = DateTime.Now;
-                    movimiento.UsuarioId = user?.Id; 
+                    movimiento.UsuarioId = user?.Id;
 
                     _context.MovimientosStock.Add(movimiento);
 
+                    // Actualizar el stock
                     if (movimiento.TipoMovimiento == "Entrada")
                         producto.StockActual += movimiento.Cantidad;
                     else
                         producto.StockActual -= movimiento.Cantidad;
 
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
 
                     return RedirectToAction(nameof(Index));
                 }
@@ -90,8 +94,9 @@ namespace StockManager.Controllers
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
                 TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
-                return RedirectToAction("Index"); // Volvemos a la vista de movimientos
+                return RedirectToAction("Index");
             }
+
             var movimiento = _context.MovimientosStock.Find(id);
             if (movimiento == null) return NotFound();
 
@@ -101,21 +106,47 @@ namespace StockManager.Controllers
 
         [HttpPost]
         //[Authorize(Roles = "Jefe,Empleado")]
-        public IActionResult Edit(MovimientoStock movimiento)
+        public async Task<IActionResult> Edit(MovimientoStock movimiento)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
                 TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
-                return RedirectToAction("Index"); // Volvemos a la vista de movimientos
+                return RedirectToAction("Index");
             }
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Productos = _context.Productos.Where(p => p.Activo).ToList();
                 return View(movimiento);
             }
 
+            // 1️⃣ Obtener el movimiento original
+            var original = await _context.MovimientosStock
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.IdMovimiento == movimiento.IdMovimiento);
+            if (original == null) return NotFound();
+
+            // 2️⃣ Revertir efecto del movimiento anterior
+            var productoOld = await _context.Productos.FindAsync(original.IdProducto);
+            if (productoOld == null) return NotFound();
+
+            if (original.TipoMovimiento == "Entrada")
+                productoOld.StockActual -= original.Cantidad;
+            else if (original.TipoMovimiento == "Salida")
+                productoOld.StockActual += original.Cantidad;
+
+            // 3️⃣ Aplicar efecto del nuevo movimiento
+            var productoNew = await _context.Productos.FindAsync(movimiento.IdProducto);
+            if (productoNew == null) return NotFound();
+
+            if (movimiento.TipoMovimiento == "Entrada")
+                productoNew.StockActual += movimiento.Cantidad;
+            else if (movimiento.TipoMovimiento == "Salida")
+                productoNew.StockActual -= movimiento.Cantidad;
+
+            // 4️⃣ Guardar el nuevo movimiento
             _context.MovimientosStock.Update(movimiento);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
@@ -126,13 +157,14 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
-                return RedirectToAction("Index"); // Volvemos a la vista de movimientos
+                TempData["Error"] = "❌ No tienes permisos para eliminar movimientos.";
+                return RedirectToAction("Index");
             }
+
             var movimiento = _context.MovimientosStock
-                                     .Include(m => m.Producto)
-                                     .Include(m => m.Usuario)
-                                     .FirstOrDefault(m => m.IdMovimiento == id);
+                .Include(m => m.Producto)
+                .Include(m => m.Usuario)
+                .FirstOrDefault(m => m.IdMovimiento == id);
             if (movimiento == null) return NotFound();
 
             return View(movimiento);
@@ -140,18 +172,28 @@ namespace StockManager.Controllers
 
         [HttpPost, ActionName("Delete")]
         //[Authorize(Roles = "Jefe,Empleado")]
-        public IActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
-                return RedirectToAction("Index"); // Volvemos a la vista de movimientos
+                TempData["Error"] = "❌ No tienes permisos para eliminar movimientos.";
+                return RedirectToAction("Index");
             }
-            var movimiento = _context.MovimientosStock.Find(id);
+
+            var movimiento = await _context.MovimientosStock.FindAsync(id);
             if (movimiento == null) return NotFound();
 
+            var producto = await _context.Productos.FindAsync(movimiento.IdProducto);
+            if (producto == null) return NotFound();
+
+            // Revertir el efecto antes de eliminarlo
+            if (movimiento.TipoMovimiento == "Entrada")
+                producto.StockActual -= movimiento.Cantidad;
+            else if (movimiento.TipoMovimiento == "Salida")
+                producto.StockActual += movimiento.Cantidad;
+
             _context.MovimientosStock.Remove(movimiento);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
