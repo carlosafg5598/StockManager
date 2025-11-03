@@ -75,7 +75,7 @@ Corregir inicio de sesión (explicado en sección errores)
   ~~~~~
   QuestPDF.Settings.License = LicenseType.Community;
   ~~~~~
-  7) 03/11/25
+  7)  03/11/25
   - ERROR: Al hacer otra vez las pruebas de las autorizaciones, veo que los mensjaes de error que quiero que se muestren en las propias vistas cuando un tipo de usuario no puede acceder a algo en concreto (que un empleado edite un producto, lo cual no puede) se muestran en otras vistas
   - CAUSA:
   - SOLUCIÓN:
