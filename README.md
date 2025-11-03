@@ -37,9 +37,13 @@ Corregir inicio de sesión (explicado en sección errores)
 ### 8) (30/10/25)
 1) Creación de la vista para editar perfiles
 2) Modificación del Layout para poder modificar cada una de las vistas al editar el perfil
+3) **Dudas en el proyecto:**  Después de comprobar todo no tengo del todo claro la función de la vista de informes que metí en el anteproyecto.
 
-**Dudas en el proyecto:**  Después de comprobar todo no tengo del todo claro la función de la vista de informes que metí en el anteproyecto.
-
+### 9) (03/11/25)
+1) Corrección de las fuentes a la hora de editar un perfil
+2) Corrección del controlador MovimientosController para gestionar el editar y el eliminar y así poder modificar la cantidad de stock de los productos
+3) Creación del controlador de informes
+4) Vista de informes y uso de QuestPDF para generar informes 
 
 ***
 
@@ -71,6 +75,10 @@ Corregir inicio de sesión (explicado en sección errores)
   ~~~~~
   QuestPDF.Settings.License = LicenseType.Community;
   ~~~~~
+  7) 03/11/25
+  - ERROR: Al hacer otra vez las pruebas de las autorizaciones, veo que los mensjaes de error que quiero que se muestren en las propias vistas cuando un tipo de usuario no puede acceder a algo en concreto (que un empleado edite un producto, lo cual no puede) se muestran en otras vistas
+  - CAUSA:
+  - SOLUCIÓN:
   
 
 ## Cursos Referencia
