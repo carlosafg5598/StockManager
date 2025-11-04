@@ -78,8 +78,8 @@ Corregir inicio de sesión (explicado en sección errores)
   
 7) 03/11/25
   - ERROR: Al hacer otra vez las pruebas de las autorizaciones, veo que los mensjaes de error que quiero que se muestren en las propias vistas cuando un tipo de usuario no puede acceder a algo en concreto (que un empleado edite un producto, lo cual no puede) se muestran en otras vistas
-  - CAUSA:
-  - SOLUCIÓN:
+  - CAUSA: Mal uso de la propiedad TempData. En las clases MovimientosController y ProductosController uso esta propiedad dándole el mismo valor, "Error", y marco para que se redireccione a la vista Index, lo que hace que al provocar varios errores seguidos se muestren los errores en vistas diferentes. A mayores en la clase ProductosController no había añadido el if para el uso del TempData.
+  - SOLUCIÓN: Completé la clae ProductosController para el uso del TempData y le cambié los valores a los TempData de ProductosController y de MovimientosController. 
   
 
 ## Cursos Referencia
