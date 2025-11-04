@@ -7,36 +7,28 @@
       "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\informescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\informescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\perfilcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\perfilcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\views\\movimientos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\views\\movimientos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\movimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\movimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\views\\movimientos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\views\\movimientos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\views\\movimientos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\views\\movimientos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\views\\movimientos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\views\\movimientos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,119 +78,93 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Productos\\Index.cshtml",
+              "RelativeDocumentMoniker": "StockManager\\Views\\Productos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Productos\\Index.cshtml",
+              "RelativeToolTip": "StockManager\\Views\\Productos\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T08:19:41.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\Index.cshtml",
+              "RelativeDocumentMoniker": "StockManager\\Views\\Movimientos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\Index.cshtml",
+              "RelativeToolTip": "StockManager\\Views\\Movimientos\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T07:54:06.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\Edit.cshtml",
+              "RelativeDocumentMoniker": "StockManager\\Views\\Movimientos\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\Edit.cshtml",
+              "RelativeToolTip": "StockManager\\Views\\Movimientos\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T07:54:05.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\Delete.cshtml",
+              "RelativeDocumentMoniker": "StockManager\\Views\\Movimientos\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\Delete.cshtml",
+              "RelativeToolTip": "StockManager\\Views\\Movimientos\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T07:54:05.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "create.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\create.cshtml",
+              "RelativeDocumentMoniker": "StockManager\\Views\\Movimientos\\create.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Movimientos\\create.cshtml",
+              "RelativeToolTip": "StockManager\\Views\\Movimientos\\create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-04T07:54:04.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ProductosController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\ProductosController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\ProductosController.cs",
               "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\ProductosController.cs",
               "RelativeToolTip": "StockManager\\Controllers\\ProductosController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAawFEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-03T11:29:30.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "MovimientosController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\MovimientosController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\MovimientosController.cs",
               "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\MovimientosController.cs",
               "RelativeToolTip": "StockManager\\Controllers\\MovimientosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAF8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T08:51:44.051Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PerfilController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\PerfilController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\PerfilController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\PerfilController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\PerfilController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T11:29:29.611Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T11:29:27.763Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProveedoresController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\ProveedoresController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\ProveedoresController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\ProveedoresController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\ProveedoresController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:32:01.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:31:57.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:31:53.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:31:49.027Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InformesController.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\InformesController.cs",
-              "RelativeDocumentMoniker": "StockManager\\Controllers\\InformesController.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\InformesController.cs",
-              "RelativeToolTip": "StockManager\\Controllers\\InformesController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:31:38.842Z",
               "EditorCaption": ""
             }
           ]

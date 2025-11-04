@@ -1,5 +1,15 @@
 ﻿@model IEnumerable<StockManager.Models.Producto>
 
+@{
+    Layout = "_Layout";
+}
+@if (TempData["ErrorProductos"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorProductos"]
+    </div>
+}
+
 <h2 class="mb-4">Listado de Productos</h2>
 
 <p>

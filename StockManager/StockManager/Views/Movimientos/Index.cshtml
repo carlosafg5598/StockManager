@@ -3,10 +3,10 @@
 @{
     Layout = "_Layout";
 }
-@if (TempData["Error"] != null)
+@if (TempData["ErrorMovimientos"] != null)
 {
     <div class="alert alert-danger">
-        @TempData["Error"]
+        @TempData["ErrorMovimientos"]
     </div>
 }
 

@@ -34,7 +34,7 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "No tienes permisos para crear movimientos.";
+                TempData["ErrorMovimientos"] = "No tienes permisos para crear movimientos.";
                 return RedirectToAction("Index");
             }
 
@@ -48,7 +48,7 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "No tienes permisos para crear movimientos.";
+                TempData["ErrorMovimientos"] = "No tienes permisos para crear movimientos.";
                 return RedirectToAction("Index");
             }
 
@@ -93,7 +93,7 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
+                TempData["ErrorMovimientos"] = "No tienes permisos para editar movimientos.";
                 return RedirectToAction("Index");
             }
 
@@ -110,7 +110,7 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para editar movimientos.";
+                TempData["ErrorMovimientos"] = "No tienes permisos para editar movimientos.";
                 return RedirectToAction("Index");
             }
 
@@ -157,7 +157,7 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para eliminar movimientos.";
+                TempData["ErrorMovimientos"] = "No tienes permisos para eliminar movimientos.";
                 return RedirectToAction("Index");
             }
 
@@ -176,7 +176,7 @@ namespace StockManager.Controllers
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
             {
-                TempData["Error"] = "❌ No tienes permisos para eliminar movimientos.";
+                TempData["ErrorMovimientos"] = "No tienes permisos para eliminar movimientos.";
                 return RedirectToAction("Index");
             }
 

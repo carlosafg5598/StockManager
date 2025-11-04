@@ -31,7 +31,7 @@ namespace StockManager.Controllers
         {
             if (User.IsInRole("Empleado"))
             {
-                TempData["Error"] = "No tienes permisos para crear productos.";
+                TempData["ErrorProductos"] = "No tienes permisos para crear productos.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -50,7 +50,7 @@ namespace StockManager.Controllers
         {
             if (User.IsInRole("Empleado"))
             {
-                TempData["Error"] = "No tienes permisos para crear productos.";
+                TempData["ErrorProductos"] = "No tienes permisos para crear productos.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -76,7 +76,7 @@ namespace StockManager.Controllers
         {
             if (User.IsInRole("Empleado"))
             {
-                TempData["Error"] = "No tienes permisos para editar productos.";
+                TempData["ErrorProductos"] = "No tienes permisos para editar productos.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -101,7 +101,7 @@ namespace StockManager.Controllers
         {
             if (User.IsInRole("Empleado"))
             {
-                TempData["Error"] = "No tienes permisos para editar productos.";
+                TempData["ErrorProductos"] = "No tienes permisos para editar productos.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -134,7 +134,7 @@ namespace StockManager.Controllers
         {
             if (User.IsInRole("Empleado"))
             {
-                TempData["Error"] = "No tienes permisos para eliminar productos.";
+                TempData["ErrorProductos"] = "No tienes permisos para eliminar productos.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -156,7 +156,7 @@ namespace StockManager.Controllers
         {
             if (User.IsInRole("Empleado"))
             {
-                TempData["Error"] = "No tienes permisos para eliminar productos.";
+                TempData["ErrorProductos"] = "No tienes permisos para eliminar productos.";
                 return RedirectToAction(nameof(Index));
             }
 
