@@ -95,5 +95,8 @@ Corregir inicio de sesión (explicado en sección errores)
 
 ### Documentación
 
-1) https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
+1) Identity: https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
+2) EntityFramework: https://learn.microsoft.com/es-es/ef/core
+3) Controladores: https://learn.microsoft.com/es-es/aspnet/core/mvc/controllers/actions?view=aspnetcore-9.0
+4) Sintaxis Razor: https://learn.microsoft.com/es-es/aspnet/core/mvc/views/razor?view=aspnetcore-9.0
 
