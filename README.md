@@ -95,8 +95,15 @@ Corregir inicio de sesión (explicado en sección errores)
 
 ### Documentación
 
-1) Identity: https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
-2) EntityFramework: https://learn.microsoft.com/es-es/ef/core
-3) Controladores: https://learn.microsoft.com/es-es/aspnet/core/mvc/controllers/actions?view=aspnetcore-9.0
-4) Sintaxis Razor: https://learn.microsoft.com/es-es/aspnet/core/mvc/views/razor?view=aspnetcore-9.0
+1) Información general ASP: https://learn.microsoft.com/es-es/aspnet/core/mvc/overview?view=aspnetcore-8.0
+2) Introducción ASP: https://learn.microsoft.com/es-es/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-8.0&tabs=visual-studio
+3) Sintaxis Razor: https://learn.microsoft.com/es-es/aspnet/core/mvc/views/razor?view=aspnetcore-8.0
+4) Entity Framework: https://learn.microsoft.com/es-es/ef/core
+5) Introducción EF Core: https://learn.microsoft.com/es-es/ef/core/get-started/overview/first-app?tabs=netcore-cli
+6) Migraciones: https://learn.microsoft.com/es-es/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
+7) Identity: https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
+8) Roles en ASP: https://learn.microsoft.com/es-es/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+9) Controladores: https://learn.microsoft.com/es-es/aspnet/core/mvc/controllers/actions?view=aspnetcore-9.0
+10) Sintaxis Razor: https://learn.microsoft.com/es-es/aspnet/core/mvc/views/razor?view=aspnetcore-9.0
+
 
