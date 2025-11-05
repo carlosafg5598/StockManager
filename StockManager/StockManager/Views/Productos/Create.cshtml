@@ -10,15 +10,7 @@
     </div>
 
     <div class="card-body">
-        @* Mensajes globales *@
-        @if (TempData["Exito"] != null)
-        {
-            <div class="alert alert-success">@TempData["Exito"]</div>
-        }
-        @if (TempData["Error"] != null)
-        {
-            <div class="alert alert-danger">@TempData["Error"]</div>
-        }
+        
 
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>

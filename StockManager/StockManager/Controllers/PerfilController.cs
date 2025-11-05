@@ -73,10 +73,10 @@ namespace StockManager.Controllers
 
             await _userManager.UpdateAsync(user);
 
-            TempData["Exito"] = "Perfil actualizado correctamente.";
+            
             return RedirectToAction("Edit");
         }
-        // --- CAMBIO DE CONTRASEÑA ---
+        
         [HttpGet]
         public IActionResult CambiarContrasena()
         {
@@ -102,7 +102,7 @@ namespace StockManager.Controllers
 
             if (result.Succeeded)
             {
-                TempData["Exito"] = "Contraseña actualizada correctamente.";
+                
                 return RedirectToAction("Edit");
             }
 
