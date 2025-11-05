@@ -34,7 +34,7 @@ namespace StockManager.Controllers
             return RedirectToAction("Index", "Login");
         }
 
-        // Vista principal según rol
+        
         public async Task<IActionResult> Dashboard()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -59,7 +59,7 @@ namespace StockManager.Controllers
             return View(ultimosMovimientos);
 
 
-            //return View();
+            
         }
 
         [AllowAnonymous]

@@ -5,7 +5,7 @@ using StockManager.Models;
 
 namespace StockManager.Controllers
 {
-    //[Authorize]
+    
     public class LoginController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -34,7 +34,7 @@ namespace StockManager.Controllers
                 return View();
             }
 
-            // Obtenemos el usuario y su rol
+            
             var user = await _userManager.FindByEmailAsync(email);
             var roles = await _userManager.GetRolesAsync(user);
             var rol = roles.FirstOrDefault();

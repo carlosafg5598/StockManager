@@ -48,7 +48,7 @@ namespace StockManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string NombreCompleto, string email, string password, string rol, string PhoneNumber)
         {
-            // Validación básica
+            
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(rol))
             {
                 ViewBag.Error = "Todos los campos obligatorios deben rellenarse.";
@@ -79,10 +79,10 @@ namespace StockManager.Controllers
                 return View();
             }
 
-            // Asignar rol (por seguridad, filtrar rol permitido)
+            
             if (rol != "Empleado" && rol != "Administrador")
             {
-                // por seguridad, si alguien inyecta otro rol, lo rechazamos
+                
                 await _userManager.DeleteAsync(user);
                 ViewBag.Error = "Rol no válido.";
                 ViewBag.Roles = _roleManager.Roles
@@ -94,12 +94,12 @@ namespace StockManager.Controllers
 
             await _userManager.AddToRoleAsync(user, rol);
 
-            //TempData["Exito"] = "Usuario creado correctamente.";
+            
             return RedirectToAction(nameof(Index));
         }
 
 
-        // GET: Usuarios/Delete/id  -> muestra confirmación
+        
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
@@ -111,7 +111,7 @@ namespace StockManager.Controllers
             return View(user);
         }
 
-        // POST: Usuarios/Delete (confirmación)
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -124,18 +124,17 @@ namespace StockManager.Controllers
             var result = await _userManager.DeleteAsync(user);
             if (!result.Succeeded)
             {
-                // Opcional: mostrar errores en Index o en vista de Delete
-                //TempData["Error"] = string.Join(" ", result.Errors.Select(e => e.Description));
+                
                 return RedirectToAction(nameof(Index));
             }
 
-            //TempData["Exito"] = "Usuario eliminado correctamente.";
+            
             return RedirectToAction(nameof(Index));
         }
 
 
 
-        // GET: Usuarios/Edit/id
+        
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
@@ -146,13 +145,13 @@ namespace StockManager.Controllers
             if (user == null)
                 return NotFound();
 
-            // Traemos solo roles permitidos (Empleado y Administrador)
+            
             ViewBag.Roles = _roleManager.Roles
                 .Where(r => r.Name == "Empleado" || r.Name == "Administrador")
                 .Select(r => r.Name)
                 .ToList();
 
-            // Rol actual del usuario
+            
             var currentRole = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
 
             ViewBag.CurrentRole = currentRole;
@@ -160,7 +159,7 @@ namespace StockManager.Controllers
             return View(user);
         }
 
-        // POST: Usuarios/Edit
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, string email, string telefono, string rol)
@@ -175,7 +174,7 @@ namespace StockManager.Controllers
                 return View(user);
             }
 
-            // Actualizamos datos básicos
+
             user.Email = email;
             user.UserName = email;
             user.PhoneNumber = telefono;
@@ -188,7 +187,7 @@ namespace StockManager.Controllers
                 return View(user);
             }
 
-            // Actualizamos el rol
+            
             var currentRoles = await _userManager.GetRolesAsync(user);
             if (currentRoles.Any())
                 await _userManager.RemoveFromRolesAsync(user, currentRoles);

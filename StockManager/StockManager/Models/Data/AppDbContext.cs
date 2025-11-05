@@ -15,7 +15,7 @@ namespace StockManager.Models.Data
         public DbSet<MovimientoStock> MovimientosStock { get; set; }
 
 
-        //public DbSet<Usuario> Usuarios { get; set; }
+       
 
     }
 }

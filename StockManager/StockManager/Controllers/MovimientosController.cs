@@ -29,7 +29,7 @@ namespace StockManager.Controllers
             return View(movimientos);
         }
 
-        //[Authorize(Roles = "Jefe,Empleado")]
+        
         public IActionResult Create()
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
@@ -43,7 +43,7 @@ namespace StockManager.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Jefe,Empleado")]
+        
         public async Task<IActionResult> Create(MovimientoStock movimiento)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
@@ -59,7 +59,7 @@ namespace StockManager.Controllers
                 var producto = _context.Productos.Find(movimiento.IdProducto);
                 if (producto == null) return NotFound();
 
-                // Validación: no permitir salida si no hay stock suficiente
+                
                 if (movimiento.TipoMovimiento == "Salida" && movimiento.Cantidad > producto.StockActual)
                 {
                     ModelState.AddModelError("Cantidad", $"No hay suficiente stock disponible. Stock actual: {producto.StockActual}");
@@ -71,7 +71,7 @@ namespace StockManager.Controllers
 
                     _context.MovimientosStock.Add(movimiento);
 
-                    // Actualizar el stock
+                    
                     if (movimiento.TipoMovimiento == "Entrada")
                         producto.StockActual += movimiento.Cantidad;
                     else
@@ -88,7 +88,7 @@ namespace StockManager.Controllers
         }
 
         // EDITAR MOVIMIENTO
-        //[Authorize(Roles = "Jefe,Empleado")]
+        
         public IActionResult Edit(int id)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
@@ -105,7 +105,7 @@ namespace StockManager.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Jefe,Empleado")]
+        
         public async Task<IActionResult> Edit(MovimientoStock movimiento)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
@@ -120,13 +120,13 @@ namespace StockManager.Controllers
                 return View(movimiento);
             }
 
-            // 1️⃣ Obtener el movimiento original
+            
             var original = await _context.MovimientosStock
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.IdMovimiento == movimiento.IdMovimiento);
             if (original == null) return NotFound();
 
-            // 2️⃣ Revertir efecto del movimiento anterior
+            
             var productoOld = await _context.Productos.FindAsync(original.IdProducto);
             if (productoOld == null) return NotFound();
 
@@ -135,7 +135,7 @@ namespace StockManager.Controllers
             else if (original.TipoMovimiento == "Salida")
                 productoOld.StockActual += original.Cantidad;
 
-            // 3️⃣ Aplicar efecto del nuevo movimiento
+            
             var productoNew = await _context.Productos.FindAsync(movimiento.IdProducto);
             if (productoNew == null) return NotFound();
 
@@ -144,7 +144,7 @@ namespace StockManager.Controllers
             else if (movimiento.TipoMovimiento == "Salida")
                 productoNew.StockActual -= movimiento.Cantidad;
 
-            // 4️⃣ Guardar el nuevo movimiento
+            
             _context.MovimientosStock.Update(movimiento);
             await _context.SaveChangesAsync();
 
@@ -152,7 +152,7 @@ namespace StockManager.Controllers
         }
 
         // ELIMINAR MOVIMIENTO
-        //[Authorize(Roles = "Jefe,Empleado")]
+        
         public IActionResult Delete(int id)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
@@ -171,7 +171,7 @@ namespace StockManager.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        //[Authorize(Roles = "Jefe,Empleado")]
+        
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (!User.IsInRole("Empleado") && !User.IsInRole("Jefe"))
@@ -186,7 +186,7 @@ namespace StockManager.Controllers
             var producto = await _context.Productos.FindAsync(movimiento.IdProducto);
             if (producto == null) return NotFound();
 
-            // Revertir el efecto antes de eliminarlo
+            
             if (movimiento.TipoMovimiento == "Entrada")
                 producto.StockActual -= movimiento.Cantidad;
             else if (movimiento.TipoMovimiento == "Salida")

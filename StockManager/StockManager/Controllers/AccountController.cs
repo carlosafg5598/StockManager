@@ -5,7 +5,7 @@ using StockManager.Models;
 
 namespace StockManager.Controllers
 {
-    //[Authorize]
+
     public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -34,7 +34,7 @@ namespace StockManager.Controllers
                 return View("~/Views/Home/Index.cshtml");
             }
 
-            // Redirigir según el rol
+            
             if (await _userManager.IsInRoleAsync(user, "Jefe"))
                 return RedirectToAction("Index", "Usuarios");
             else if (await _userManager.IsInRoleAsync(user, "Administrador"))

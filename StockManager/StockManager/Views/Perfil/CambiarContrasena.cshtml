@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Cambiar Contraseña";
+}
+
+<h2 class="mb-4 text-center">Cambiar Contraseña</h2>
+
+
+
+<form asp-action="CambiarContrasena" method="post" class="w-75 mx-auto">
+    <div class="mb-3">
+        <label>Contraseña actual</label>
+        <input type="password" name="contraseñaActual" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Nueva contraseña</label>
+        <input type="password" name="nuevaContraseña" class="form-control" required minlength="4" />
+    </div>
+
+    <div class="mb-3">
+        <label>Confirmar nueva contraseña</label>
+        <input type="password" name="confirmarContraseña" class="form-control" required minlength="4" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar contraseña</button>
+    <a asp-action="Edit" class="btn btn-secondary ms-2">Cancelar</a>
+</form>

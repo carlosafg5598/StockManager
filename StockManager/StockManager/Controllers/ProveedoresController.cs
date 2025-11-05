@@ -45,7 +45,7 @@ namespace StockManager.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            //TempData["Error"] = "Error al crear el proveedor. Verifica los datos.";
+            
             return View(proveedor);
         }
 
@@ -68,11 +68,11 @@ namespace StockManager.Controllers
             {
                 _context.Proveedores.Update(proveedor);
                 _context.SaveChanges();
-                //TempData["Exito"] = "Proveedor actualizado correctamente.";
+                
                 return RedirectToAction(nameof(Index));
             }
 
-            //TempData["Error"] = "Error al actualizar el proveedor.";
+            
             return View(proveedor);
         }
 

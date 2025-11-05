@@ -34,7 +34,8 @@ namespace StockManager.Controllers
             user.Email = model.Email;
             user.FuentePreferida = model.FuentePreferida;
             user.TemaColor = model.TemaColor;
-            //user.FondoPantalla = model.FondoPantalla;
+            user.PhoneNumber = model.PhoneNumber;
+
 
             // Guardar imagen si el usuario sube una nueva
             if (FotoPerfil != null && FotoPerfil.Length > 0)
@@ -75,5 +76,43 @@ namespace StockManager.Controllers
             TempData["Exito"] = "Perfil actualizado correctamente.";
             return RedirectToAction("Edit");
         }
+        // --- CAMBIO DE CONTRASEÑA ---
+        [HttpGet]
+        public IActionResult CambiarContrasena()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CambiarContrasena(string contraseñaActual, string nuevaContraseña, string confirmarContraseña)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            if (nuevaContraseña != confirmarContraseña)
+            {
+                ModelState.AddModelError(string.Empty, "Las contraseñas nuevas no coinciden.");
+                return View();
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, contraseñaActual, nuevaContraseña);
+
+            if (result.Succeeded)
+            {
+                TempData["Exito"] = "Contraseña actualizada correctamente.";
+                return RedirectToAction("Edit");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            return View();
+        }
+
     }
 }

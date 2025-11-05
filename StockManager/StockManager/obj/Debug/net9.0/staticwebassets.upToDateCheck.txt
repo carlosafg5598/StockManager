@@ -69,12 +69,14 @@ wwwroot\uploads\fondos\a6d23258-7b3b-4139-884a-d90175f8d977.jpg
 wwwroot\uploads\fondos\a98c7162-257c-4f01-89a6-df3fb2007501.jpg
 wwwroot\uploads\fondos\b755da79-468d-40da-9b11-c095d7ad814a.jpg
 wwwroot\uploads\fondos\bb155309-ce72-4545-8a9e-ba0907cd4934.jpg
+wwwroot\uploads\fondos\df54f523-1226-44f5-8235-2aa5c345f8ff.jpg
 wwwroot\uploads\fondos\fe585c32-49de-47f0-be2c-43975641e3c7.jpg
 wwwroot\uploads\perfiles\3c0a822e-c7f8-44da-b70f-c3dddbb4984b.jpg
 wwwroot\uploads\perfiles\657ea3d6-694a-4b7e-85c2-c9b806fd841f.jpg
 wwwroot\uploads\perfiles\6ff482f4-7f73-46a6-8091-5f1f52705614.jpg
 wwwroot\uploads\perfiles\859279bd-412c-4858-b529-4b3782ce6b25.jpg
 wwwroot\uploads\perfiles\a9ed577e-448a-49e5-aa64-5fd170040fe1.jpg
+wwwroot\uploads\perfiles\b5dd366b-1b38-43b6-898a-c742851fbd64.png
 wwwroot\uploads\perfiles\bdfbf238-dc6e-4f19-bae1-6d52fa32cbbe.jpg
 wwwroot\uploads\perfiles\c2e66d90-c5a2-4dfc-94e0-38ad3875f928.jpg
 wwwroot\uploads\perfiles\e393b963-9791-455b-9d81-e2dfbfad4890.jpeg
