@@ -82,9 +82,9 @@ Corregir inicio de sesión (explicado en sección errores)
   - SOLUCIÓN: Completé la clae ProductosController para el uso del TempData y le cambié los valores a los TempData de ProductosController y de MovimientosController.
 
 8) 05/11/25
-- ERROR:Al estar ultimando detalles antes de avanzar y emoezar a hacer videos conforme el proyecto se está encauzando me di cuenta de que no añadí la posibilidad de gestionar contraseñas, y al querer añadir esa opción el programa falla
-- CAUSA:
-- SOLUCIÓN:
+- ERROR:Durante la fase final del proyecto, al revisar detalles antes de grabar los vídeos, detecté que no había implementado la posibilidad de gestionar o cambiar contraseñas desde el perfil del usuario. Al intentar añadir esta funcionalidad, la aplicación comenzó a fallar.
+- CAUSA: El problema se debía a la existencia de dos controladores que gestionaban la autenticación (LoginController y AccountController), lo que generaba conflictos al manejar el inicio de sesión y las operaciones relacionadas con Identity.
+- SOLUCIÓN: Eliminé el controlador AccountController, ya que este se genera automáticamente al usar Identity, y mantuve únicamente el LoginController, adaptando este último para que gestione el inicio de sesión y complementándolo con el PerfilController para el cambio de contraseña y la edición de datos del usuario.
 
 ***
 
