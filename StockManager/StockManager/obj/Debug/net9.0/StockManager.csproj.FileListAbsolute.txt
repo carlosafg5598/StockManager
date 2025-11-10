@@ -801,7 +801,6 @@ C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\obj\
 C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\obj\Debug\net9.0\StockManager.pdb
 C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\obj\Debug\net9.0\StockManager.genruntimeconfig.cache
 C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\obj\Debug\net9.0\ref\StockManager.dll
-C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Carlos\Desktop\StockManager\StockManager\StockManager\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\Carlos\Desktop\StockManager\StockManager\StockManager\bin\Debug\net9.0\appsettings.json
 C:\Users\Carlos\Desktop\StockManager\StockManager\StockManager\bin\Debug\net9.0\StockManager.staticwebassets.runtime.json

@@ -32,6 +32,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 builder.Services.AddControllersWithViews();
 
 
+
+builder.WebHost.UseUrls("http://0.0.0.0:7288");
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
