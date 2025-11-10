@@ -43,7 +43,11 @@ Corregir inicio de sesión (explicado en sección errores)
 1) Corrección de las fuentes a la hora de editar un perfil
 2) Corrección del controlador MovimientosController para gestionar el editar y el eliminar y así poder modificar la cantidad de stock de los productos
 3) Creación del controlador de informes
-4) Vista de informes y uso de QuestPDF para generar informes 
+4) Vista de informes y uso de QuestPDF para generar informes
+
+### 10) (05/11/25)
+1) Administración de las contraseñas de los usuarios
+2) Mejora de la vista para editar perfiles de forma que puedan editar el número
 
 ***
 
