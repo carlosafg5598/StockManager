@@ -49,6 +49,11 @@ Corregir inicio de sesión (explicado en sección errores)
 1) Administración de las contraseñas de los usuarios
 2) Mejora de la vista para editar perfiles de forma que puedan editar el número
 
+### 11) (10/11/25)
+1) Publicación del proyecto en un directorio
+2) Configureción del proyecto en una red local
+3) Pruebas de errores
+
 ***
 
 ## Errores a lo largo del proyecto
@@ -56,22 +61,27 @@ Corregir inicio de sesión (explicado en sección errores)
 - ERROR: A la hora de hacer la gestión de los moviminetos, conecta bien con la base de datos, pero a la hora de registrar el movimiento falla debido a la clave foraneo del producto
 - CAUSA:El formulario manda un id de Producto nulo
 - SOLUCIÓN: Arreglar el controlador para que envie correctamente el id
+  
 2) 13/10/25
 - ERROR: Para poder realizar el control de los movimientos, decidí implementar ya el identity de los usuarios, pero eso me dió errores a la hora de iniciar sesión
 - CAUSA: Tenía dos lineas de código que hacían lo mismo repetidas
 - SOLUCIÓN: Borré la primera linea ya que con la segunda es con la que usaba identity
+  
 3) 14/10/25
 - ERROR: Después de gestionar las vistas me vi con la problemática de que puedo acceder a la vista de cada uno de los diferentes roles sin iniciar sesión
 - CAUSA: Las vistas no tenían aplicada ninguna política de autorización, por lo que eran accesibles de forma anónima.
-- SOLUCIÓN:
+- SOLUCIÓN: Cont
+  
 4) 30/10/25
 - ERROR: Después de crear la vista para editar perfiles y probar los diferentes apartados que se pueden modificar veo que las fuentes no se modifican, sin embargo si me registra el cambio
 - CAUSA: El CSS aplicaba la fuente desde una variable personalizada que no estaba actualizando el valor dinámicamente en el Layout. Aunque la nueva fuente se guardaba, el archivo de estilos no se estaba refrescando con el cambio, y además algunas fuentes que probé requerían carga desde Google Fonts.
 - SOLUCIÓN: Simplifiqué la lógica usando fuentes básicas del sistema (Arial, Verdana, Times New Roman, etc.) para evitar dependencias externas, y modifiqué el CSS base del Layout para que la fuente se aplicara a todo el contenido mediante una variable global (--font-family).
+  
 5) 31/10/25
 - ERROR: Creando la vista de informes (en la cual he decidido que se trate sobre poder filtrar los movimientos y generar pdf) me encontré con el error de que si elimino movimientos creados las cantidades de esos movimintos siguen afectando a los productos
 - CAUSA: No tenía acabados los métodos de editar y de eliminar en MovimientosController
 - SOLUCIÓN: Completé los elementos Edit y Delete.
+  
 6) 02/11/25
 - ERROR: Al intentar implementar la exportación del informe de movimientos a PDF utilizando la librería QuestPDF, el programa lanzó una excepción. El mensaje de error indicaba que era necesario seleccionar un tipo de licencia para continuar usando la librería.
 - CAUSA:QuestPDF tiene dos tipos de licencias, Community License (gratuita para proyectos personales o con ingresos menores a 1 millón USD) y Commercial License (para empresas grandes). Debido a no tener una licencia configurada saltó la excepción.
@@ -89,6 +99,11 @@ Corregir inicio de sesión (explicado en sección errores)
 - ERROR:Durante la fase final del proyecto, al revisar detalles antes de grabar los vídeos, detecté que no había implementado la posibilidad de gestionar o cambiar contraseñas desde el perfil del usuario. Al intentar añadir esta funcionalidad, la aplicación comenzó a fallar.
 - CAUSA: El problema se debía a la existencia de dos controladores que gestionaban la autenticación (LoginController y AccountController), lo que generaba conflictos al manejar el inicio de sesión y las operaciones relacionadas con Identity.
 - SOLUCIÓN: Eliminé el controlador AccountController, ya que este se genera automáticamente al usar Identity, y mantuve únicamente el LoginController, adaptando este último para que gestione el inicio de sesión y complementándolo con el PerfilController para el cambio de contraseña y la edición de datos del usuario.
+
+9) 10/11/25
+ - ERROR: En una de las pruebas de hoy estaba usando dos usuarios a la vez en dos ordenadores diferentes, y al momento de hacer pruebas de editar y eliminar perfiles ocurrió que uno de los perfiles no me dejó eliminarlo 
+ - CAUSA:
+ - SOLUCIÓN:
 
 ***
 
