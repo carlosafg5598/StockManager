@@ -70,7 +70,7 @@ Corregir inicio de sesión (explicado en sección errores)
 3) 14/10/25
 - ERROR: Después de gestionar las vistas me vi con la problemática de que puedo acceder a la vista de cada uno de los diferentes roles sin iniciar sesión
 - CAUSA: Las vistas no tenían aplicada ninguna política de autorización, por lo que eran accesibles de forma anónima.
-- SOLUCIÓN: Cont
+- SOLUCIÓN: Añadí los atributos [Authorize] y [Authorize(Roles="...")] en los controladores y vistas correspondientes. De esta forma, cada vista solo puede ser accedida por los usuarios con los roles adecuados, garantizando la seguridad y el control de acceso dentro de la aplicación.
   
 4) 30/10/25
 - ERROR: Después de crear la vista para editar perfiles y probar los diferentes apartados que se pueden modificar veo que las fuentes no se modifican, sin embargo si me registra el cambio
@@ -102,8 +102,8 @@ Corregir inicio de sesión (explicado en sección errores)
 
 9) 10/11/25
  - ERROR: En una de las pruebas de hoy estaba usando dos usuarios a la vez en dos ordenadores diferentes, y al momento de hacer pruebas de editar y eliminar perfiles ocurrió que uno de los perfiles no me dejó eliminarlo 
- - CAUSA:
- - SOLUCIÓN:
+ - CAUSA: Esataba borrando un usuario con su id asociada a la tabla de movimientos
+ - SOLUCIÓN: Controlé ese error y mando un mensaje conforme no se puede borrar por tener un movimiento asociado
 
 ***
 
