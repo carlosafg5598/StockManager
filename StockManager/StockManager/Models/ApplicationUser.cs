@@ -15,5 +15,7 @@ namespace StockManager.Models
         public string? TemaColor { get; set; }
         public string? FuentePreferida { get; set; }
         public string? FondoPantalla { get; set; }
+        public bool Activo { get; set; } = true;
+
     }
 }

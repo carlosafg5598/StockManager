@@ -1,72 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Informes";
+﻿@model List<(StockManager.Models.ApplicationUser Usuario, string Rol)>
+@{
     Layout = "_Layout";
 }
 
-<h2 class="mb-4 text-center">Panel de Informes</h2>
+<h2 class="mb-4 text-center">Gestión de Usuarios</h2>
 
-
-
-
-
-<section>
-    <h4 class="mb-3"> Análisis de Movimientos</h4>
-
-    <form method="get" class="row g-3 align-items-end mb-3">
-        <div class="col-md-3">
-            <label>Tipo de movimiento</label>
-            <select name="tipoMovimiento" class="form-select">
-                <option value="">Todos</option>
-                <option value="Entrada" selected="@(Context.Request.Query["tipoMovimiento"] == "Entrada")">Entradas</option>
-                <option value="Salida" selected="@(Context.Request.Query["tipoMovimiento"] == "Salida")">Salidas</option>
-            </select>
-        </div>
-
-        <div class="col-md-3">
-            <label>Desde</label>
-            <input type="date" name="desde" value="@Context.Request.Query["desde"]" class="form-control" />
-        </div>
-
-        <div class="col-md-3">
-            <label>Hasta</label>
-            <input type="date" name="hasta" value="@Context.Request.Query["hasta"]" class="form-control" />
-        </div>
-
-        <div class="col-md-3">
-            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
-        </div>
-
-    </form>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Producto</th>
-                <th>Tipo</th>
-                <th>Cantidad</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var m in ViewBag.Movimientos)
-            {
-                <tr>
-                    <td>@m.FechaMovimiento.ToShortDateString()</td>
-                    <td>@m.Producto?.NombreProducto</td>
-                    <td>@m.TipoMovimiento</td>
-                    <td>@m.Cantidad</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <div class="mt-3 text-end">
-        <a class="btn btn-danger"
-           asp-action="ExportarPDF"
-           asp-route-tipoMovimiento="@Context.Request.Query["tipoMovimiento"]"
-           asp-route-desde="@Context.Request.Query["desde"]"
-           asp-route-hasta="@Context.Request.Query["hasta"]">
-           Exportar informe a PDF
-        </a>
+<form method="get" class="row g-3 align-items-end mb-4">
+    <div class="col-md-3">
+        <label>Estado</label>
+        <select name="estado" class="form-select">
+            <option value="">Todos</option>
+            <option value="Activo" selected="@(ViewBag.EstadoSeleccionado == "Activo")">Activos</option>
+            <option value="Inactivo" selected="@(ViewBag.EstadoSeleccionado == "Inactivo")">Inactivos</option>
+        </select>
     </div>
 
-</section>
+    <div class="col-md-3">
+        <label>Rol</label>
+        <select name="rol" class="form-select">
+            <option value="">Todos</option>
+            @foreach (var rol in ViewBag.Roles)
+            {
+                <option value="@rol" selected="@(ViewBag.RolSeleccionado == rol)">@rol</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Nombre Completo</th>
+            <th>Rol</th>
+            <th>Teléfono</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="@(item.Usuario.Activo ? "" : "table-secondary")">
+                <td>@item.Usuario.Email</td>
+                <td>@item.Usuario.NombreCompleto</td>
+                <td>@item.Rol</td>
+                <td>@item.Usuario.PhoneNumber</td>
+                <td>@(item.Usuario.Activo ? "Activo" : "Inactivo")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Usuario.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Usuario.Id" class="btn btn-danger btn-sm">Eliminar</a>
+
+                    <form asp-action="ToggleActivo" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@item.Usuario.Id" />
+                        @Html.AntiForgeryToken()
+                        @if (item.Usuario.Activo)
+                        {
+                            <button type="submit" class="btn btn-secondary btn-sm">Desactivar</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-success btn-sm">Activar</button>
+                        }
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Usuarios/Create" class="btn btn-primary">Crear nuevo usuario</a>

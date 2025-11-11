@@ -36,6 +36,14 @@ namespace StockManager.Controllers
 
             
             var user = await _userManager.FindByEmailAsync(email);
+            
+            if (user != null && !user.Activo)
+            {
+
+                ViewBag.Error = "Tu cuenta está desactivada. Contacta con el administrador.";
+                return View();
+            }
+
             var roles = await _userManager.GetRolesAsync(user);
             var rol = roles.FirstOrDefault();
 

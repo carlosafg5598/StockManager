@@ -12,23 +12,37 @@
             <th>Nombre Completo</th>
             <th>Rol</th>
             <th>Teléfono</th>
+            <th>Estado</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-
-
+            <tr class="@(item.Usuario.Activo ? "" : "table-secondary")">
                 <td>@item.Usuario.Email</td>
                 <td>@item.Usuario.NombreCompleto</td>
                 <td>@item.Rol</td>
                 <td>@item.Usuario.PhoneNumber</td>
-
+                <td>
+                    @(item.Usuario.Activo ? "Activo" : "Inactivo")
+                </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Usuario.Id" class="btn btn-warning btn-sm">Editar</a>
                     <a asp-action="Delete" asp-route-id="@item.Usuario.Id" class="btn btn-danger btn-sm">Eliminar</a>
+
+                    <form asp-action="ToggleActivo" method="post" class="d-inline">
+                        <input type="hidden" name="id" value="@item.Usuario.Id" />
+                        @Html.AntiForgeryToken()
+                        @if (item.Usuario.Activo)
+                        {
+                            <button type="submit" class="btn btn-secondary btn-sm">Desactivar</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-success btn-sm">Activar</button>
+                        }
+                    </form>
                 </td>
             </tr>
         }
