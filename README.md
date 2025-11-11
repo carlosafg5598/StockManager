@@ -104,6 +104,7 @@ Corregir inicio de sesión (explicado en sección errores)
  - ERROR: En una de las pruebas de hoy estaba usando dos usuarios a la vez en dos ordenadores diferentes, y al momento de hacer pruebas de editar y eliminar perfiles ocurrió que uno de los perfiles no me dejó eliminarlo 
  - CAUSA: Esataba borrando un usuario con su id asociada a la tabla de movimientos
  - SOLUCIÓN: Controlé ese error y mando un mensaje conforme no se puede borrar por tener un movimiento asociado
+ - SOLUCIÓN 2: Decicí añadir un segundo control. A  parte de poder eliminar usuarios, el usuario "jefe" va a poder activar o desactivar usuarios, de forma que puedo desactivar un usuario para que no pueda entrar y que eso no afecte a sus movimientos registrados. De todas formas se van a poder seguir eliminando usuarios 
 
 ***
 
