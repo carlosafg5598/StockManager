@@ -54,6 +54,10 @@ Corregir inicio de sesión (explicado en sección errores)
 2) Configureción del proyecto en una red local
 3) Pruebas de errores
 
+### 12) (11/11/25)
+1) Ultimas pruebas de errores
+2) Añadir una opción más en la gestión de usuarios
+
 ***
 
 ## Errores a lo largo del proyecto
