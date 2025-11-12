@@ -17,7 +17,7 @@ namespace StockManager.Controllers
             _roleManager = roleManager;
         }
 
-        
+
         public async Task<IActionResult> Index(string estado, string rol)
         {
             var usuarios = _userManager.Users.ToList();
@@ -28,6 +28,9 @@ namespace StockManager.Controllers
                 var roles = await _userManager.GetRolesAsync(u);
                 model.Add((u, roles.FirstOrDefault() ?? "Sin Rol"));
             }
+
+            
+            model = model.Where(m => m.Rol != "Jefe").ToList();
 
             
             if (!string.IsNullOrEmpty(rol))
@@ -47,16 +50,16 @@ namespace StockManager.Controllers
 
             
             ViewBag.Roles = _roleManager.Roles
-                .Where(r => r.Name != "Jefe") 
+                .Where(r => r.Name != "Jefe")
                 .Select(r => r.Name)
                 .ToList();
 
-            
             ViewBag.EstadoSeleccionado = estado;
             ViewBag.RolSeleccionado = rol;
 
             return View(model);
         }
+
 
 
         public IActionResult Create()
