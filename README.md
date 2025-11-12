@@ -124,6 +124,7 @@ Corregir inicio de sesión (explicado en sección errores)
 3) Identity: https://www.youtube.com/watch?v=0PZpjDYT0ZQ&t=1129s
 4) Autenticación: https://www.youtube.com/watch?v=IvoDzgrjMOY
 5) Bootstrap 5: https://www.youtube.com/watch?v=QCw0L6FupQ0
+6) Quest PDF: https://www.youtube.com/watch?v=5FuKYHcT5SE
 
 ### Documentación
 
