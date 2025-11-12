@@ -82,6 +82,7 @@ wwwroot\uploads\perfiles\c2e66d90-c5a2-4dfc-94e0-38ad3875f928.jpg
 wwwroot\uploads\perfiles\e393b963-9791-455b-9d81-e2dfbfad4890.jpeg
 wwwroot\uploads\perfiles\ed89934b-f613-4b13-8534-f2f209c3d16f.jpg
 wwwroot\uploads\perfiles\f27e3042-6cbb-471f-820d-27005ffbf902.pdf
+wwwroot\uploads\perfiles\5f590f9d-1fad-479f-ac62-ed785e8aa84f.jpg
 C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\wwwroot\css\site.css
 C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\wwwroot\favicon.ico
 C:\Users\carlo\Desktop\stockManager2\StockManager\StockManager\StockManager\wwwroot\js\site.js
