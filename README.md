@@ -61,6 +61,9 @@ Corregir inicio de sesión (explicado en sección errores)
 ### 13) (12/11/25)
 1) Corrección en la gestión de usuarios. Haciendo ayer el video demostrativo de la aplicación me di cuenta que tenía un error de lógica en la gestión de usuarios
 
+### 14) (13/11/25)
+1) Informe final y video tutorial de la aplicación
+
 ***
 
 ## Errores a lo largo del proyecto
