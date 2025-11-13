@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|c:\\users\\carlo\\desktop\\stockmanager2\\stockmanager\\stockmanager\\stockmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C940DF4A-4B58-407F-9FED-EEF4C6FB3D6D}|StockManager\\StockManager.csproj|solutionrelative:stockmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -58,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,7 +98,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "StockManager\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "StockManager\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAmwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T12:43:36.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Perfil\\Edit.cshtml",
               "RelativeDocumentMoniker": "StockManager\\Views\\Perfil\\Edit.cshtml",
@@ -102,12 +119,11 @@
               "RelativeToolTip": "StockManager\\Views\\Perfil\\Edit.cshtml",
               "ViewState": "AgIAADIAAAAAAAAAAAAwwDUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-12T08:37:11.042Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-12T08:37:11.042Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PerfilController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\PerfilController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\PerfilController.cs",
@@ -115,12 +131,11 @@
               "RelativeToolTip": "StockManager\\Controllers\\PerfilController.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAAAAwGkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T08:36:59.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-12T08:36:59.845Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "InformesController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\InformesController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\InformesController.cs",
@@ -132,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Informes\\Index.cshtml",
               "RelativeDocumentMoniker": "StockManager\\Views\\Informes\\Index.cshtml",
@@ -144,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Usuarios\\Index.cshtml",
               "RelativeDocumentMoniker": "StockManager\\Views\\Usuarios\\Index.cshtml",
@@ -156,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Program.cs",
               "RelativeDocumentMoniker": "StockManager\\Program.cs",
@@ -169,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MovimientosController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\MovimientosController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\MovimientosController.cs",
@@ -181,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\LoginController.cs",
@@ -189,12 +204,11 @@
               "RelativeToolTip": "StockManager\\Controllers\\LoginController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:33:18.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T11:33:18.517Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "UsuariosController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Controllers\\UsuariosController.cs",
               "RelativeDocumentMoniker": "StockManager\\Controllers\\UsuariosController.cs",
@@ -206,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "SeedIdentityData.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Models\\Data\\SeedIdentityData.cs",
               "RelativeDocumentMoniker": "StockManager\\Models\\Data\\SeedIdentityData.cs",
@@ -218,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "StockManager\\Models\\ApplicationUser.cs",
@@ -226,12 +240,11 @@
               "RelativeToolTip": "StockManager\\Models\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T10:34:59.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T10:34:59.743Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\stockManager2\\StockManager\\StockManager\\StockManager\\Views\\Usuarios\\Delete.cshtml",
               "RelativeDocumentMoniker": "StockManager\\Views\\Usuarios\\Delete.cshtml",

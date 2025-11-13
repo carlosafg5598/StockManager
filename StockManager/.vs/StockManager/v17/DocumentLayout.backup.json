@@ -189,7 +189,8 @@
               "RelativeToolTip": "StockManager\\Controllers\\LoginController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T11:33:18.517Z"
+              "WhenOpened": "2025-11-11T11:33:18.517Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -225,7 +226,8 @@
               "RelativeToolTip": "StockManager\\Models\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T10:34:59.743Z"
+              "WhenOpened": "2025-11-11T10:34:59.743Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
